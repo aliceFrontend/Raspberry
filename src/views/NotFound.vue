@@ -1,79 +1,80 @@
 <template>
-    <div class="noteFound">
-        <div class="image">
-            <img src="./../assets/export_404.svg" alt="">
-        </div>
-        <div class="info">
-            <div class="title">404</div>
-            <div class="subtitle">Oops! Page not found</div>
-            <div class="text">
-                This page does not exist or has been deleted. <br>
-                Don't worry
-            </div>
-            <div class="link">
-               <a href="#">Back to Home</a>  
-            </div>
-        </div>
+  <div class="noteFound">
+    <div class="noteFound__image">
+      <img src="./../assets/images/export_404.svg" class="noteFaund__desktop" alt="" />
     </div>
+    <div class="noteFound__info">
+      <div class="noteFound__title">404</div>
+      <div class="noteFound__subtitle">Oops! Page not found</div>
+      <div class="noteFound__text">
+        This page does not exist or has been deleted. <br />
+        Don't worry
+      </div>
+      <!-- <div class="link">
+               <a href="#">Back to Home</a>  
+            </div> -->
+    </div>
+  </div>
 </template>
 
-<style scoped>
-.noteFound{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+<style>
+.noteFound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 270px 30px 270px;
 }
-/* .info{
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    width: 50%;
-    z-index: 1;
-} */
-.image img{
-    width: 80%;
+.noteFound__image img {
+  width: 80%;
 }
-.title{
-    font-family: 'Libre Franklin';
-    color: white;
-    text-shadow: -3px -3px 0 #171717, 3px -3px 0 #171717, -3px 3px 0 #171717, 3px 3px 0 #171717;
-    font-size: 12vw;
-    width: 100%;
-    height: auto;
-    font-weight: 800;
-    line-height: 14vw;
+.noteFound__title {
+  font: 800 12vw/12vw  'Libre Franklin';
+  color: white;
+  text-shadow: -3px -3px 0 #171717, 3px -3px 0 #171717, -3px 3px 0 #171717, 3px 3px 0 #171717;
+  width: 100%;
+  height: auto;
 }
-.subtitle{
-    height: auto;
-    width: 100%;
-    color: #171717;
-    font-family: "Libre Franklin";
-    font-size: 34px;
-    line-height: 45px;
-    letter-spacing: 1px;
-    padding: 0;
-    font-weight: 400;
+.noteFound__subtitle {
+  height: auto;
+  width: 100%;
+  font: 400 34px/45px 'Libre Franklin';
+  color: #171717;
+  letter-spacing: 1px;
+  padding: 0;
 }
-.text{
-    height: auto;
-    width: 100%;
-    color: #171717;
-    font-family: "Libre Franklin";
-    font-size: 20px;
-    line-height: 36px;
-    letter-spacing: 0.4px;
-    padding: 0;
-    font-weight: 400;
+.noteFound__text {
+  height: auto;
+  width: 100%;
+  font: 400 20px/36px 'Libre Franklin';
+  color: #171717;
+  letter-spacing: 0.4px;
+  padding: 0;
 }
-.link a{
-    display: inline-block;
-    font-family: "Libre Franklin";
-    color: #171717;
-    font-size: 20px;
-    font-weight: 500;
-    text-decoration: none;
-    /* position: absolute;
-    right: 45%;
-    top: 110%; */
+.noteFound__mobile{
+  display: none;
 }
+@media(max-width: 1440px){
+  .noteFound__image img {
+    width: 95%;
+}
+}
+@media(max-width: 1150px){
+  .noteFound{
+    flex-direction: column-reverse;
+  }
+}
+@media(max-width: 1000px){
+  .noteFound{
+    padding: 100px 150px 30px 150px;
+  }
+}
+@media(max-width: 768px){
+.noteFound {
+    padding: 100px 50px 30px 50px;
+}
+}
+@media(max-width: 660px){}
+@media(max-width: 425px){}
+@media(max-width: 375px){}
+@media(max-width: 300px){}
 </style>
