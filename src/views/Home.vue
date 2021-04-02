@@ -1,46 +1,19 @@
 <template>
-  <div>
-    Home Page
-
-    <div class="wrap">
-      <div class="title">
-        Список постов 
-        <p>{{posts}}</p>
-      </div>
+  <div class="wrapper">
+    <div class="home__title">
+      <p>The Blog</p>
     </div>
-    <router-view/>
   </div>
 </template>
 
-<style scoped>
-
-</style>
-
-<script>
-
-export default{
-  data(){
-    return{
-      img: "",
-      data: "",
-      title: "",
-      subtitle: "", 
-      posts: [
-        {img: "/img1", data: "16.09.2001", title: "Title", subtitle: "Subtitle"},
-        {img: "/img1", data: "16.09.2001", title: "Title", subtitle: "Subtitle"},
-        {img: "/img1", data: "16.09.2001", title: "Title", subtitle: "Subtitle"},
-        {img: "/img1", data: "16.09.2001", title: "Title", subtitle: "Subtitle"},
-        {img: "/img1", data: "16.09.2001", title: "Title", subtitle: "Subtitle"},
-        {img: "/img1", data: "16.09.2001", title: "Title", subtitle: "Subtitle"},
-        {img: "/img1", data: "16.09.2001", title: "Title", subtitle: "Subtitle"},
-        {img: "/img1", data: "16.09.2001", title: "Title", subtitle: "Subtitle"},
-        {img: "/img1", data: "16.09.2001", title: "Title", subtitle: "Subtitle"},
-        {img: "/img1", data: "16.09.2001", title: "Title", subtitle: "Subtitle"},
-      ]
-    };
-  }
+<style>
+.home__title{
+  padding: 88px 200px 88px 200px;
 }
-</script>
-
-
+.home__title p{
+  text-align: center;
+  font: 600 140px/150px 'Poppins', sans-serif;
+  text-transform: uppercase;
+}
+</style>
 

@@ -1,9 +1,19 @@
 <template>
-  <div>
-    Hello Raspberry
+  <div class="layout">
+    <Header/>
 
     <router-view/>
   </div>
 </template>
+
+<script>
+import Header from '@/components/Header.vue';
+
+export default({
+ components: { Header },
+})
+</script>
+
+
 
 
