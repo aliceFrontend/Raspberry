@@ -5,15 +5,7 @@
     </div>
     <div class="home__row">
       <div class="home__column" v-for="post in posts" :key="post.id">
-        <!-- <Post :post="post"></Post> -->
-        <div class="item-home__image">
-          <img src="./../assets/images/thumb_article8.jpg" alt="">
-        </div>
-        <div class="item-home__content">
-           <div class="item-home__data">{{post.data}}</div>
-           <div class="item-home__title">{{post.title}}</div>
-           <div class="item-home__subtitle">{{post.subtitle}}</div>
-        </div>
+        <Post :post="post"></Post>
       </div>
     </div>
   </div>
@@ -22,7 +14,7 @@
 <style>
 body{
   background-color: #E3E6EC;
-  /* background-image: url('./../assets/images/bgcircle.svg'); */
+  background-image: url('./../assets/images/bgcircle.svg');
   background-repeat: no-repeat;
   background-position: top center;
 }
@@ -81,11 +73,11 @@ body{
 </style>
 
 <script>
-// import Post from '@/components/Post';name: 'Post',
-//  components: {Post},
+import Post from '@/components/Post';
 
 export default {
- 
+ components: {Post},
+ name: 'PostView',
  data(){
     return {
       posts: [
