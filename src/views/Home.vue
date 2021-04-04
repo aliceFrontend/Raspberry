@@ -4,34 +4,15 @@
       <p>The Blog</p>
     </div>
     <div class="home__row">
-      <div class="home__column">
+      <div class="home__column" v-for="post in posts" :key="post.id">
+        <!-- <Post :post="post"></Post> -->
         <div class="item-home__image">
           <img src="./../assets/images/thumb_article8.jpg" alt="">
         </div>
         <div class="item-home__content">
-           <div class="item-home__data">Maret 15, 2021</div>
-           <div class="item-home__title">Tentang membuat design responsive</div>
-           <div class="item-home__subtitle">Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive</div>
-        </div>
-      </div>
-      <div class="home__column">
-        <div class="item-home__image">
-          <img src="./../assets/images/thumb_article8.jpg" alt="">
-        </div>
-        <div class="item-home__content">
-           <div class="item-home__data">Maret 15, 2021</div>
-           <div class="item-home__title">Tentang membuat design responsive</div>
-           <div class="item-home__subtitle">Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive</div>
-        </div>
-      </div>
-      <div class="home__column">
-        <div class="item-home__image">
-          <img src="./../assets/images/thumb_article8.jpg" alt="">
-        </div>
-        <div class="item-home__content">
-           <div class="item-home__data">Maret 15, 2021</div>
-           <div class="item-home__title">Tentang membuat design responsive</div>
-           <div class="item-home__subtitle">Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive</div>
+           <div class="item-home__data">{{post.data}}</div>
+           <div class="item-home__title">{{post.title}}</div>
+           <div class="item-home__subtitle">{{post.subtitle}}</div>
         </div>
       </div>
     </div>
@@ -41,7 +22,7 @@
 <style>
 body{
   background-color: #E3E6EC;
-  background-image: url('./../assets/images/bgcircle.svg');
+  /* background-image: url('./../assets/images/bgcircle.svg'); */
   background-repeat: no-repeat;
   background-position: top center;
 }
@@ -51,7 +32,7 @@ body{
 .home__title p{
   text-align: start;
   font: 600 140px/150px 'Poppins', sans-serif;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 .home__row{
   padding: 0 212px 0 212px;
@@ -99,3 +80,26 @@ body{
 }
 </style>
 
+<script>
+// import Post from '@/components/Post';name: 'Post',
+//  components: {Post},
+
+export default {
+ 
+ data(){
+    return {
+      posts: [
+        {id: 1, image: './../assets/images/thumb_article8.jpg',
+        data: 'Maret 15, 2021', title: 'Tentang membuat design responsive', 
+        subtitle: 'Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive'},
+        {id: 2, image: './../assets/images/thumb_article8.jpg',
+        data: 'Maret 15, 2021', title: 'Tentang membuat design responsive', 
+        subtitle: 'Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive'},
+        {id: 3, image: './../assets/images/thumb_article8.jpg',
+        data: 'Maret 15, 2021', title: 'Tentang membuat design responsive', 
+        subtitle: 'Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive'}
+      ]
+    }
+  }
+}
+</script>
