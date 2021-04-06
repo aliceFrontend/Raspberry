@@ -1,7 +1,7 @@
 <template>
     <div class="post__wrap">
         <div class="item-home__image">
-          <img src="./../assets/images/thumb_article8.jpg" alt="">
+          <img :src="require(`./../assets/images/${post.image}.jpg`)" alt="">
         </div>
         <div class="item-home__content">
            <div class="item-home__data">{{post.data}}</div>
@@ -47,11 +47,11 @@
 
 
 <script>
-
+// import thumb_article8 from './assets/images/thumb_article.jpg';
 export default({
   name: 'Post',
   props: ['post'],
-
+  // components: {thumb_article8},
   
 })
 </script>
