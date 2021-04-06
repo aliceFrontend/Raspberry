@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '@/views/Home'
 import Register from '@/views/Register'
 import NotFound from '@/views/NotFound'
+// import Post from '@/views/Post'
 
 Vue.use(VueRouter)
 
@@ -26,6 +27,11 @@ const routes = [
     path: '*',
     redirect: '/404'
   }
+  // {
+  //   path: '/post/:id',
+  //   name: 'post',
+  //   component: Post
+  // }
 ]
 
 const router = new VueRouter({
