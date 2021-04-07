@@ -1,14 +1,15 @@
 <template>
     <div>
-        <p>Register page</p>
+        <p>Login page</p>
     </div>
 </template>
 
 <script>
 export default{
-    name: 'app-register'
+    name: 'app-login'
 }
 </script>
+
 <style scoped>
 p{
     text-align: center;

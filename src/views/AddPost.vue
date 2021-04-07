@@ -1,15 +1,19 @@
 <template>
     <div>
-        <p>Register page</p>
+        <p>AddPost</p>
     </div>
+    
 </template>
 
 <script>
-export default{
-    name: 'app-register'
-}
+// import Post from '@/components/Post';
+
+export default({
+//    components: {Post}
+})
 </script>
-<style scoped>
+
+<style>
 p{
     text-align: center;
     font: 600 100px/110px 'Poppins', sans-serif;

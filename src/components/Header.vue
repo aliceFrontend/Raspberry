@@ -4,21 +4,15 @@
             <img src="./../assets/images/logo.png" alt="">
         </a>
         <div class="header__navs" role="navigation">
-            <a class="header__nav-item" href="#">Home</a>
-            <a class="header__nav-item" href="#">Blog</a>
-            <a class="header__nav-item" href="#">Bookmarks</a>
-            <a class="header__nav-item" href="#">Elements</a>
-            <a class="header__nav-item" href="#">Playlists</a>
-            <a class="header__nav-item" href="#">Books</a>
+            <router-link to="/" exact class="header__nav-item">Home</router-link>
+            <router-link to="/login" class="header__nav-item">Sign in</router-link>
+            <router-link to="/register" class="header__nav-item">Sign up</router-link>
         </div>
-        <!-- <div class="header__auth">
-            <div class="auth__sign-btn">Sign in</div>
-            <div class="auth__signUp-btn">Sign up</div>
-        </div> -->
     </header>
 </template>
 
 <style>
+
 .header{
     display: flex;
     align-items: center;
@@ -36,8 +30,9 @@
     font: 500 12px/20px  'Poppins', sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #251B33;
-    opacity: 0.3;
+    color: #251B33; 
+    opacity: 0.3; 
+    border-bottom: 2px solid rgba(255,255,255, 0.0);
     transition: all .3s;
 }
 .header__nav-item:last-child{
@@ -47,7 +42,10 @@
     color: #251b86;
     opacity:1;
 }
-/* .header__navs{
-    display: flex;
-} */
+
+.router-link-active, .router-link-active>a{
+    color: #E7165D;
+    border-bottom: 2px solid #FF357A;
+    opacity: 1;
+}
 </style>
