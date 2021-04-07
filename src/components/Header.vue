@@ -5,7 +5,7 @@
         </a>
         <div class="header__navs" role="navigation">
             <router-link to="/" exact class="header__nav-item">Home</router-link>
-            <router-link to="/login" class="header__nav-item">Sign in</router-link>
+            <router-link to="/login" class="header__nav-item">Log in</router-link>
             <router-link to="/register" class="header__nav-item">Sign up</router-link>
         </div>
     </header>

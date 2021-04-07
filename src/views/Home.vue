@@ -89,7 +89,13 @@ body{
 @media(max-width: 1150px){}
 @media(max-width: 1024px){}
 @media(max-width: 1000px){}
-@media(max-width: 768px){}
+@media(max-width: 768px){
+  .home__title{
+  padding: 68px 50px 68px 50px;
+  text-align: center;
+  font: 600 100px/110px 'Poppins', sans-serif;
+  }
+}
 @media(max-width: 660px){}
 @media(max-width: 425px){}
 @media(max-width: 375px){}
