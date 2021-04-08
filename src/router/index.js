@@ -4,8 +4,9 @@ import Home from '@/views/Home'
 import Register from '@/views/Register'
 import Login from '@/views/Login'
 import NotFound from '@/views/NotFound'
-import AddPost from '@/views/AddPost'
+// import AddPost from '@/views/AddPost'
 // import Post from '@/views/Post'
+import Form from '@/components/Form'
 
 Vue.use(VueRouter)
 
@@ -28,7 +29,12 @@ const routes = [
   {
     path: '/addPost',
     name: 'addPost',
-    component: AddPost
+    component: Form
+  },
+  {
+    path: '/editPost',
+    name: 'editPost',
+    component: Form
   },
   {
     path: '/404',
