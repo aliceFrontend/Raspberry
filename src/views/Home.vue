@@ -4,7 +4,7 @@
       The Blog
     </div>
     <div class="home__posts"> 
-      <a class="home__post" v-for="post in posts" :key="post.id" href="#">
+      <a class="home__post" v-for="post in posts" :key="post.id" href="#" :posts="posts" >
         <Post :post="post"></Post>
       </a>
     </div>
@@ -13,7 +13,6 @@
 
 <script>
 import Post from '@/components/Post';
-
 export default {
  components: {Post},
  name: 'PostView',
@@ -49,7 +48,7 @@ export default {
         subtitle: 'Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive'},  
       ]
     }
-  }
+  }, 
 }
 </script>
 <style>

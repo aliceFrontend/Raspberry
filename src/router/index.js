@@ -5,7 +5,7 @@ import Register from '@/views/Register'
 import Login from '@/views/Login'
 import NotFound from '@/views/NotFound'
 // import AddPost from '@/views/AddPost'
-// import Post from '@/views/Post'
+// import Post from '@/components/Post'
 import Form from '@/components/Form'
 
 Vue.use(VueRouter)
@@ -36,6 +36,11 @@ const routes = [
     name: 'editPost',
     component: Form
   },
+  // {
+  //   path: '/post/:id',
+  //   name: 'postID',
+  //   component: Post
+  // },
   {
     path: '/404',
     name: '404',

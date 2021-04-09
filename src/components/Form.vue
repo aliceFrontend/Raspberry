@@ -9,7 +9,7 @@
                 </ul>
             </p>
         </div>   
-            <form action="/something" method="post" @submit="checkForm" enctype="multipart/form-data">
+            <form action="/" @submit.prevent="checkForm" @add-post="addPost" >
                 <div class="form__heading">
                     <input type="text" placeholder="Title" v-model="title">
                 </div>
@@ -27,25 +27,42 @@
                 </div>
                 <button class="form__btn" type="submit">Publish Article</button>
             </form>
+            <p>{{posts}}</p>
     </div>
 </template>
 
 <script>
-
 export default({
-    
+    props:['posts'],
     data() {
       return{
           errors: [],
-          title: null, 
-          subtitle: null
+          image: 'thumb_article8',
+          data: 'Maret 15, 2021',
+          title: '', 
+          subtitle: ''
       }  
     },
     methods: {
         checkForm: function (e) {
 
             if(this.title && this.subtitle){
+                
+                const newPost = {
+                    id: Date.now(),
+                    image: this.image,
+                    data: this.data,
+                    title: this.title,
+                    subtitle: this.subtitle
+                }
+
+                
+                this.$emit('add-post', newPost);
+                this.title = ''
+                this.subtitle = ''
+                this.$router.push({ name: 'home' });
                 return true;
+                
             }
 
             this.errors = [];
@@ -59,7 +76,10 @@ export default({
             }
 
             e.preventDefault();
-        }
+        },
+      addPost(posts){
+      this.posts.push(posts);
+     }
     }
 })
 </script>
@@ -70,6 +90,7 @@ export default({
     max-width: 900px;
     width: 100%;
     margin: 0 auto;
+    padding: 30px;
 }
 .form__title{
     margin: 0 0 38px 0;
@@ -142,11 +163,9 @@ export default({
 }
 .errors__title{
     font: 500 18px/23px 'IBM Plex Sans';
-    /* margin: 0 0 10px 0; */
 }
 .errors__item{
     font: 500 16px/21px 'IBM Plex Sans';
     color: #FF0033;
-    /* margin: 0 0 5px 0; */
 }
 </style>

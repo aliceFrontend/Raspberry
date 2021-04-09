@@ -15,7 +15,7 @@ export default({
 </script>
 
 <style>
-.form__wrap{
+/* .form__wrap{
     padding: 30px;
-}
+} */
 </style>
