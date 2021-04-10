@@ -17,7 +17,7 @@
                         <textarea name="" id="" cols="10" rows="18" placeholder="Subtitle" v-model="subtitle"></textarea>
                 </div>
                 <div class="form__image">
-                        <input type="file" name="file" id="input__file">
+                        <input type="file" name="file" id="input__file" ref="file" @change = "onChange">
                         <label for="input__file">
                             <span class="input__file-button">
                                 <img src="./../assets/images/Group.svg" alt="">
@@ -27,7 +27,6 @@
                 </div>
                 <button class="form__btn" type="submit">Publish Article</button>
             </form>
-            <p>{{posts}}</p>
     </div>
 </template>
 
@@ -47,12 +46,13 @@ export default({
     methods: {
         ...mapMutations(['createPost']),
         submit(){
+
             if(this.title && this.subtitle){
             this.createPost({
                 title: this.title,
                 subtitle: this.subtitle,
-                image: 'thumb_article8',
-                data: 'Maret 15, 2021',
+                image:'thumb_article8',
+                data: this.DataDetails(),
                 id: Date.now()
 
             });
@@ -69,6 +69,20 @@ export default({
                 this.errors.push('* Post description required');
             }
 
+        },
+        DataDetails(){
+            let month = String(new Date().toLocaleString('en', {month: 'long'}));
+            let day = String(new Date().getDate());
+            let years = String(new Date().getFullYear()) 
+            let date = month + ' ' + day + ', ' + years;
+            return date;
+        }, 
+        onChange(e){
+            let files = e.target.files;
+            let fileName =  (String(files[0].name)).slice(0, -4);
+            console.log(fileName);
+            return fileName;
+            // console.log(fileName);
         }
     }, 
 })

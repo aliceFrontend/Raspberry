@@ -12,7 +12,7 @@
 </template>
 
 <style >
-/* //yandex.ru/images/картинка   import картинка1, сделать заглушки картинками d gjcnt bvgjhnbhjdfnm rfhnbyre? перед экспортом, испорт, src */
+
 .item-home__content{
   padding: 30px 20px 40px 0px;
 }
