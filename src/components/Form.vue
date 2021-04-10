@@ -9,7 +9,7 @@
                 </ul>
             </p>
         </div>   
-            <form action="/" @submit.prevent="checkForm" @add-post="addPost" >
+            <form action="/" @submit.prevent="submit" >
                 <div class="form__heading">
                     <input type="text" placeholder="Title" v-model="title">
                 </div>
@@ -32,37 +32,31 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default({
-    props:['posts'],
     data() {
       return{
+          posts:[],
           errors: [],
           image: 'thumb_article8',
           data: 'Maret 15, 2021',
           title: '', 
           subtitle: ''
-      }  
+      }; 
     },
     methods: {
-        checkForm: function (e) {
-
+        ...mapMutations(['createPost']),
+        submit(){
             if(this.title && this.subtitle){
-                
-                const newPost = {
-                    id: Date.now(),
-                    image: this.image,
-                    data: this.data,
-                    title: this.title,
-                    subtitle: this.subtitle
-                }
+            this.createPost({
+                title: this.title,
+                subtitle: this.subtitle,
+                image: 'thumb_article8',
+                data: 'Maret 15, 2021',
+                id: Date.now()
 
-                
-                this.$emit('add-post', newPost);
-                this.title = ''
-                this.subtitle = ''
-                this.$router.push({ name: 'home' });
-                return true;
-                
+            });
+            this.$router.push({ name: 'home' });
             }
 
             this.errors = [];
@@ -75,12 +69,8 @@ export default({
                 this.errors.push('* Post description required');
             }
 
-            e.preventDefault();
-        },
-      addPost(posts){
-      this.posts.push(posts);
-     }
-    }
+        }
+    }, 
 })
 </script>
 

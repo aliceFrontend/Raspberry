@@ -4,7 +4,7 @@
       The Blog
     </div>
     <div class="home__posts"> 
-      <a class="home__post" v-for="post in posts" :key="post.id" href="#" :posts="posts" >
+      <a class="home__post" v-for="post in allPosts" :key="post.id" href="#" :posts="posts" >
         <Post :post="post"></Post>
       </a>
     </div>
@@ -13,42 +13,21 @@
 
 <script>
 import Post from '@/components/Post';
+import {mapGetters} from 'vuex';
 export default {
+ data(){
+  return{
+    posts:[]
+  }
+ },
  components: {Post},
  name: 'PostView',
- data(){
-    return {
-      posts: [
-        {id: 1, image: 'thumb_article8',
-        data: 'Maret 15, 2021', title: 'Tentang membuat design responsive', 
-        subtitle: 'Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive '},
-        {id: 2, image: 'thumb_article1',
-        data: 'Maret 15, 2021', title: 'Tentang membuat design responsive', 
-        subtitle: 'Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive'},
-        {id: 3, image: 'thumb_article3',
-        data: 'Maret 15, 2021', title: 'Tentang membuat design responsive', 
-        subtitle: 'Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive'},
-        {id: 4, image: 'thumb_article7',
-        data: 'Maret 15, 2021', title: 'Tentang membuat design responsive', 
-        subtitle: 'Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive'},
-       {id: 5, image: 'thumb_article8',
-        data: 'Maret 15, 2021', title: 'Tentang membuat design responsive', 
-        subtitle: 'Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive '},
-        {id: 6, image: 'thumb_article1',
-        data: 'Maret 15, 2021', title: 'Tentang membuat design responsive', 
-        subtitle: 'Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive'},
-        {id: 7, image: 'thumb_article3',
-        data: 'Maret 15, 2021', title: 'Tentang membuat design responsive', 
-        subtitle: 'Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive'},
-        {id: 8, image: 'thumb_article7',
-        data: 'Maret 15, 2021', title: 'Tentang membuat design responsive', 
-        subtitle: 'Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive'},
-        {id: 9, image: 'thumb_article3',
-        data: 'Maret 15, 2021', title: 'Tentang membuat design responsive', 
-        subtitle: 'Beberapa best practices dari website<br> website yang bisa diterapkan saat<br> membuat design versi responsive'},  
-      ]
-    }
-  }, 
+//  computed:{
+//     allPosts(){
+//      return this.$store.getters.allPosts;
+//    }
+//  }
+computed: mapGetters(['allPosts'])
 }
 </script>
 <style>

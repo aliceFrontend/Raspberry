@@ -47,14 +47,12 @@
 
 
 <script>
-// import thumb_article8 from './assets/images/thumb_article.jpg';
-// import Form from '@/components/Form'
+
 export default({
-  // name: 'Post',
+  name: 'Post',
   props:{
     post: Object
   },
-  // components: {Form},
   
 })
 </script>
