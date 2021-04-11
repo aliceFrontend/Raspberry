@@ -17,7 +17,7 @@
                         <textarea name="" id="" cols="10" rows="18" placeholder="Subtitle" v-model="subtitle"></textarea>
                 </div>
                 <div class="form__image">
-                        <input type="file" name="file" id="input__file" ref="file" @change = "onChange">
+                        <input type="file" name="file" id="input__file" ref="file">
                         <label for="input__file">
                             <span class="input__file-button">
                                 <img src="./../assets/images/Group.svg" alt="">
@@ -40,9 +40,19 @@ export default({
           image: 'thumb_article8',
           data: 'Maret 15, 2021',
           title: '', 
-          subtitle: ''
+          subtitle: '',
+          attachments: '',
       }; 
     },
+    // computed: {
+    //      fileName: function(){
+    //         let files = this.attachments;
+    //         let fileName =  (String(files[0].name)).slice(0, -4);
+    //         console.log(fileName);
+    //         console.log(e);
+    //         return fileName;
+    //     }
+    // },
     methods: {
         ...mapMutations(['createPost']),
         submit(){
@@ -51,7 +61,7 @@ export default({
             this.createPost({
                 title: this.title,
                 subtitle: this.subtitle,
-                image:'thumb_article8',
+                image: 'thumb_article8',
                 data: this.DataDetails(),
                 id: Date.now()
 
@@ -81,6 +91,7 @@ export default({
             let files = e.target.files;
             let fileName =  (String(files[0].name)).slice(0, -4);
             console.log(fileName);
+            console.log(e);
             return fileName;
             // console.log(fileName);
         }
