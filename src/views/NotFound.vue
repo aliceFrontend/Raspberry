@@ -1,8 +1,8 @@
 <template>
   <div class="noteFound">
-    <div class="noteFound__image">
+    <router-link to="/" class="noteFound__image">
       <img src="./../assets/images/export_404.svg" class="noteFaund__desktop" alt="" />
-    </div>
+    </router-link>
     <div class="noteFound__info">
       <div class="noteFound__title">404</div>
       <div class="noteFound__subtitle">Oops! Page not found</div>
@@ -10,9 +10,6 @@
         This page does not exist or has been deleted. <br />
         Don't worry
       </div>
-      <!-- <div class="link">
-               <a href="#">Back to Home</a>  
-            </div> -->
     </div>
   </div>
 </template>

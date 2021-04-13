@@ -4,7 +4,7 @@
       The Blog
     </div>
     <div class="home__posts"> 
-       <router-link :to="`post/${post.id}`" class="home__post" v-for="post in allPosts" :key="post.id" href="#" :posts="posts">
+       <router-link to="post/" class="home__post" v-for="post in allPosts" :key="post.id" href="#" :posts="posts">
           <Post :post="post"></Post>
        </router-link>
     </div>

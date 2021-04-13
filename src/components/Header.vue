@@ -1,12 +1,13 @@
 <template>
     <header class="header">
-        <a href="#" class="header__logo">
+        <router-link to="/" exact class="header__logo">
             <img src="./../assets/images/logo.png" alt="">
-        </a>
+        </router-link>
         <div class="header__navs" role="navigation">
             <router-link to="/" exact class="header__nav-item">Home</router-link>
             <router-link to="/login" class="header__nav-item">Log in</router-link>
             <router-link to="/register" class="header__nav-item">Sign up</router-link>
+            <router-link to="/addPost" class="header__nav-item">New Article</router-link>
         </div>
     </header>
 </template>

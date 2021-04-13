@@ -36,8 +36,8 @@ const routes = [
     component: Form
   },
   {
-    path: '/post/:id',
-    name: 'postID',
+    path: '/post',
+    name: 'post',
     component: Post
   },
   {

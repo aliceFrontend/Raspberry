@@ -35,29 +35,24 @@ import { mapMutations } from 'vuex'
 export default({
     data() {
       return{
-          posts:[],
           errors: [],
           image: 'thumb_article8',
           data: 'Maret 15, 2021',
           title: '', 
           subtitle: '',
-          attachments: '',
+          posts:[],
+        //   для редактирования
+          post: {image: '', data: '', title: '', subtitle: ''},
+          edit: false, 
+          editIndex: -1
       }; 
     },
-    // computed: {
-    //      fileName: function(){
-    //         let files = this.attachments;
-    //         let fileName =  (String(files[0].name)).slice(0, -4);
-    //         console.log(fileName);
-    //         console.log(e);
-    //         return fileName;
-    //     }
-    // },
     methods: {
         ...mapMutations(['createPost']),
         submit(){
 
             if(this.title && this.subtitle){
+                
             this.createPost({
                 title: this.title,
                 subtitle: this.subtitle,
@@ -93,8 +88,18 @@ export default({
             console.log(fileName);
             console.log(e);
             return fileName;
-            // console.log(fileName);
+        },
+        editPost(index){
+            this.edit = true;
+            this.editIndex = index;
+            this.post = this.post[index];
+
+        }, 
+        editCncel(){
+            this.post = {image: '', data: '', title: '', subtitle: ''};
+            this.editIndex = -1;
         }
+
     }, 
 })
 </script>

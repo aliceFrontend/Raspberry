@@ -1,3 +1,4 @@
+// const mysql = require('mysql')
 export default {
   state: {
     posts: [
@@ -83,7 +84,9 @@ export default {
       state.posts.push(newPost)
     }
   },
-  actions: {},
+  // actions: {
+  //   async fetchPost(commit, dispatch) {}
+  // },
   getters: {
     allPosts(state) {
       return state.posts
