@@ -13,21 +13,21 @@
 
 <script>
 import Post from '@/components/Post';
-import {mapGetters} from 'vuex';
+import {mapGetters, mapActions} from 'vuex';
 export default {
- data(){
-  return{
-    posts:[]
-  }
- },
  components: {Post},
  name: 'PostView',
-//  computed:{
-//     allPosts(){
-//      return this.$store.getters.allPosts;
-//    }
-//  }
-computed: mapGetters(['allPosts'])
+ data(){
+   return{
+     posts: []
+   }
+ },
+computed: mapGetters(['allPosts']),
+methods: mapActions(['fetchPosts']),
+async mounted(){
+
+  this.fetchPosts();
+ }
 }
 </script>
 <style>

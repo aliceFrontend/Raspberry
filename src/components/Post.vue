@@ -1,12 +1,12 @@
 <template>
     <div class="post__wrap">
         <div class="item-home__image">
-          <img :src="require(`./../assets/images/${post.image}.jpg`)" alt="">
+          <img :src="require(`./../assets/images/${post.post_image}.jpg`)" alt="">
         </div>
         <div class="item-home__content">
-           <div class="item-home__data">{{post.data}}</div>
-           <div class="item-home__title">{{post.title}}</div>
-           <div class="item-home__subtitle">{{post.subtitle}}</div>
+           <div class="item-home__data">{{post.post_data}}</div>
+           <div class="item-home__title">{{post.post_title}}</div>
+           <div class="item-home__subtitle">{{post.post_text}}</div>
         </div>
     </div>
 </template>

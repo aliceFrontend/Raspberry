@@ -37,14 +37,10 @@ export default({
       return{
           errors: [],
           image: 'thumb_article8',
-          data: 'Maret 15, 2021',
+        //   data: 'Maret 15, 2021',
           title: '', 
           subtitle: '',
           posts:[],
-        //   для редактирования
-          post: {image: '', data: '', title: '', subtitle: ''},
-          edit: false, 
-          editIndex: -1
       }; 
     },
     methods: {
@@ -57,7 +53,7 @@ export default({
                 title: this.title,
                 subtitle: this.subtitle,
                 image: 'thumb_article8',
-                data: this.DataDetails(),
+                // data: this.DataDetails(),
                 id: Date.now()
 
             });
@@ -74,33 +70,9 @@ export default({
                 this.errors.push('* Post description required');
             }
 
-        },
-        DataDetails(){
-            let month = String(new Date().toLocaleString('en', {month: 'long'}));
-            let day = String(new Date().getDate());
-            let years = String(new Date().getFullYear()) 
-            let date = month + ' ' + day + ', ' + years;
-            return date;
         }, 
-        onChange(e){
-            let files = e.target.files;
-            let fileName =  (String(files[0].name)).slice(0, -4);
-            console.log(fileName);
-            console.log(e);
-            return fileName;
-        },
-        editPost(index){
-            this.edit = true;
-            this.editIndex = index;
-            this.post = this.post[index];
 
-        }, 
-        editCncel(){
-            this.post = {image: '', data: '', title: '', subtitle: ''};
-            this.editIndex = -1;
-        }
-
-    }, 
+    } 
 })
 </script>
 
