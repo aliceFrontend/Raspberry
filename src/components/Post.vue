@@ -4,7 +4,8 @@
           <img :src="require(`./../assets/images/${post.post_image}.jpg`)" alt="">
         </div>
         <div class="item-home__content">
-           <div class="item-home__data">{{post.post_data}}</div>
+           <div class="item-home__data">{{post.id_post}}</div>
+           <div class="item-home__data">{{post.post_datetime}}</div>
            <div class="item-home__title">{{post.post_title}}</div>
            <div class="item-home__subtitle">{{post.post_text}}</div>
         </div>

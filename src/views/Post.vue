@@ -1,25 +1,15 @@
 <template>
      <div>
-         <div class="id">
-             <!-- <p>Post id: {{id}}</p> -->
-             <p>Post какой-то</p>
-             <div class="btn">
-                <!-- <router-link :to="`/AddPost/${post.id}`">Edit Post</router-link>  -->
-             </div>
-             
-        </div>
+         <div class="detailsPost__title">
+             Пост какой-то
+         </div>
      </div>
 </template>
 
 <script>
-
+import {mapState} from 'vuex'
 export default{
-    name: 'app-post', 
-    computed: {
-        id(){
-            return this.$route.params.id;
-        }
-    }, 
+    computed: mapState(['posts'])
 };
 </script>
 <style scoped>

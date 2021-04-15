@@ -23,7 +23,16 @@ export default {
    }
  },
 computed: mapGetters(['allPosts']),
-methods: mapActions(['fetchPosts']),
+methods: {
+  ...mapActions(['fetchPosts']),
+  postId(post){
+    console.log('hi')
+    console.log(post)
+  }
+  },
+
+
+
 async mounted(){
 
   this.fetchPosts();

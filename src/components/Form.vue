@@ -11,10 +11,10 @@
         </div>   
             <form action="/" @submit.prevent="submit" >
                 <div class="form__heading">
-                    <input type="text" placeholder="Title" v-model="title">
+                    <input type="text" placeholder="Title" v-model="post_title">
                 </div>
                 <div class="form__subtitle">
-                        <textarea name="" id="" cols="10" rows="18" placeholder="Subtitle" v-model="subtitle"></textarea>
+                        <textarea name="" id="" cols="10" rows="18" placeholder="Subtitle" v-model="post_text"></textarea>
                 </div>
                 <div class="form__image">
                         <input type="file" name="file" id="input__file" ref="file">
@@ -31,30 +31,32 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 export default({
     data() {
       return{
-          errors: [],
-          image: 'thumb_article8',
-        //   data: 'Maret 15, 2021',
-          title: '', 
-          subtitle: '',
           posts:[],
+          post_title: '', 
+          post_text: '',
+          post_image: 'thumb_article8',
+          post_datetime: '2021-04-14 13:46:45',
+          errors: [],
       }; 
     },
     methods: {
         ...mapMutations(['createPost']),
+        ...mapActions(['addPost']),
         submit(){
 
-            if(this.title && this.subtitle){
+            if(this.post_title && this.post_text){
                 
             this.createPost({
-                title: this.title,
-                subtitle: this.subtitle,
-                image: 'thumb_article8',
-                // data: this.DataDetails(),
-                id: Date.now()
+
+                post_title: this.post_title,
+                post_text: this.post_text,
+                post_image: 'thumb_article8',
+                post_datetime: '2021-04-14 13:46:45',
+                id_post: Date.now()
 
             });
             this.$router.push({ name: 'home' });
@@ -62,15 +64,24 @@ export default({
 
             this.errors = [];
 
-            if(!this.title){
+            if(!this.post_title){
                 this.errors.push('* Post title required');
             }
 
-            if(!this.subtitle){
+            if(!this.post_text){
                 this.errors.push('* Post description required');
             }
+            // this.addPost({
+            //     post_title: this.post_title,
+            //     post_text: this.post_text,
+            //     post_image: 'thumb_article8',
+            //     post_datetime: '2021-04-14 13:46:45',
+            //     id_post: Date.now()
+                
+            // });
 
         }, 
+
 
     } 
 })
