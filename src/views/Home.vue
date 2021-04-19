@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="home__title">
-      The Blog
+      Raspberry
     </div>
     <div class="home__posts"> 
        <router-link to="post/" class="home__post" v-for="post in allPosts" :key="post.id" href="#" :posts="posts">

@@ -8,6 +8,7 @@
             <router-link to="/login" class="header__nav-item">Log in</router-link>
             <router-link to="/register" class="header__nav-item">Sign up</router-link>
             <router-link to="/addPost" class="header__nav-item">New Article</router-link>
+            <!-- <router-link to="/settings" class="header__nav-item">Settings</router-link> -->
         </div>
     </header>
 </template>
@@ -44,9 +45,9 @@
     opacity:1;
 }
 
-.router-link-active, .router-link-active>a{
+/* .router-link-active, .router-link-active>a{
     color: #E7165D;
     border-bottom: 2px solid #FF357A;
     opacity: 1;
-}
+} */
 </style>
