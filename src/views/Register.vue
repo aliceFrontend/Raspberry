@@ -6,9 +6,9 @@
         <div class="auth__link">
             <router-link :to="{name: 'login'}">Need an account?</router-link>
         </div>
-        <!-- <div class="auth__errors">
-           
-        </div>   -->
+        <div class="auth__errors">
+           <ValidationErrors v-if="validationErrors" :validation-errors = "validationErrors"/>
+        </div>  
         <form @submit.prevent="onSubmit" >
             <div class="auth__name">
                 <input type="text" placeholder="Name" v-model="username">
@@ -26,6 +26,8 @@
 
 <script>
 import {actionTypes} from '@/store/modules/auth'
+import ValidationErrors from '@/components/ValidationErrors'
+import {mapState} from 'vuex'
 export default{
     name: 'app-register',
     data(){
@@ -36,9 +38,16 @@ export default{
         }
     },
     computed:{
-    isSubmitting() {
-      return this.$store.state.auth.isSubmitting
-    }
+         ...mapState({
+            isSubmitting: state => state.auth.isSubmitting,
+            validationErrors: state => state.auth.validationErrors
+        })
+    // isSubmitting() {
+    //   return this.$store.state.auth.isSubmitting
+    //  },
+    //  validationErrors(){
+    //      return this.$store.state.auth.validationErrors
+    //  }
     },
     methods: {
     onSubmit() {
@@ -52,7 +61,8 @@ export default{
           this.$router.push({name: 'home'})
         })
     },
-  }
+  },
+  components: {ValidationErrors}
 }
 </script>
 <style>

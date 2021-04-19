@@ -8,21 +8,14 @@
         </div>
         
         <div class="signIn__errors">
-            <div class="form__errors">
-                <p v-if="errors.length">
-                    <b class="errors__title">Please correct the indicated errors:</b>
-                    <ul class="errors__items">
-                        <li class="errors__item" v-for="error in errors" :key="error">{{ error }}</li>
-                    </ul>
-                </p>
-            </div> 
+            <ValidationErrors v-if="validationErrors" :validation-errors = "validationErrors"/>
         </div>  
         <form @submit.prevent="onSubmit" >
             <div class="signIn__email">
-                <input type="text" placeholder="Email" v-modal="email">
+                <input type="text" placeholder="Email" v-model="email">
             </div>
             <div class="signIn__password">
-                <input type="password" placeholder="Password" v-modal="password">
+                <input type="password" placeholder="Password" v-model="password">
             </div>
             <button class="signIn__btn" type="submit" :disabled="isSubmitting">Sign In</button>
         </form> 
@@ -31,41 +24,39 @@
 
 <script>
 import {actionTypes} from '@/store/modules/auth'
+import ValidationErrors from '@/components/ValidationErrors'
+import {mapState} from 'vuex'
 export default{
     name: 'app-login',
     data(){
         return {
-            user_email: '',
-            user_password: '', 
-            errors: []
+            email: '',
+            password: '', 
         }
     },
+    components: {ValidationErrors},
     computed:{
-    isSubmitting() {
-      return this.$store.state.auth.isSubmitting
-    }
+        ...mapState({
+            isSubmitting: state => state.auth.isSubmitting,
+            validationErrors: state => state.auth.validationErrors
+        })
+    // isSubmitting() {
+    //   return this.$store.state.auth.isSubmitting
+    // },
+    // validationErrors(){
+    //      return this.$store.state.auth.validationErrors
+    //  }
     },
     methods: {
     onSubmit() {
-    //   if(this.user_email && this.user_password){
       this.$store
         .dispatch(actionTypes.login, {
-          user_email: this.user_email,
-          user_password: this.user_password
+          email: this.email,
+          password: this.password
         })
         .then(() => {
           this.$router.push({name: 'home'})
         })
-        // }
-
-        // this.errors = [];
-
-        //     if(!this.user_email){
-        //         this.errors.push('* User email required');
-        //     }
-        //     if(!this.user_password){
-        //         this.errors.push('* User password required');
-        //     }
     },
   }
 }

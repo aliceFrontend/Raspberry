@@ -1,20 +1,52 @@
 <template>
     <header class="header">
-        <router-link to="/" exact class="header__logo">
+        <router-link :to="{name: 'home'}" exact class="header__logo">
             <img src="./../assets/images/logo.png" alt="">
         </router-link>
         <div class="header__navs" role="navigation">
-            <router-link to="/" exact class="header__nav-item">Home</router-link>
-            <router-link to="/login" class="header__nav-item">Log in</router-link>
-            <router-link to="/register" class="header__nav-item">Sign up</router-link>
-            <router-link to="/addPost" class="header__nav-item">New Article</router-link>
-            <!-- <router-link to="/settings" class="header__nav-item">Settings</router-link> -->
+
+            <router-link :to="{name: 'home'}" exact class="header__nav-item" active-class="active">Home</router-link>
+
+            <template v-if="isLoggedIn">
+
+                 <router-link :to="{name: 'addPost'}" class="header__nav-item" active-class="active">New Article</router-link>
+                 <router-link :to="{name: 'settings'}" class="header__nav-item" active-class="active">Settings</router-link> 
+                 <router-link :to="{name: 'userProfile', params: {slug: currentUser.username}}" class="header__nav-item" active-class="active">
+                <img :src="currentUser.image" alt=""> 
+                &nbsp;
+                {{ currentUser.username }}
+                </router-link> 
+
+            </template>
+            
+            <template v-if="!isLoggedIn">
+
+                <router-link :to="{name: 'login'}" class="header__nav-item" active-class="active">Log in</router-link>
+                <router-link :to="{name: 'register'}" class="header__nav-item" active-class="active">Sign up</router-link>
+
+            </template>
+
         </div>
     </header>
 </template>
 
-<style>
+<script>
 
+import {mapState} from 'vuex'
+
+export default({
+    name: 'app-header',
+    computed:{
+    ...mapState({
+      currentUser: state => state.auth.currentUser,
+      isLoggedIn: state => state.auth.isLoggedIn 
+    })
+  }
+})
+</script>
+
+
+<style>
 .header{
     display: flex;
     align-items: center;
@@ -45,7 +77,12 @@
     opacity:1;
 }
 
-/* .router-link-active, .router-link-active>a{
+/* .active{
+    color: #E7165D;
+    border-bottom: 2px solid #FF357A;
+    opacity: 1;
+}
+.router-link-active, .router-link-active>a{
     color: #E7165D;
     border-bottom: 2px solid #FF357A;
     opacity: 1;

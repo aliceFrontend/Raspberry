@@ -14,8 +14,8 @@ export const mutationTypes = {
   registerFailure: '[auth] registerFailure',
 
   loginStart: '[auth] loginStartStart',
-  loginStartSuccess: '[auth] loginStartSuccess',
-  loginStartFailure: '[auth] loginStartFailure'
+  loginSuccess: '[auth] loginStartSuccess',
+  loginFailure: '[auth] loginStartFailure'
 }
 
 export const actionTypes = {
