@@ -1,11 +1,11 @@
 <template>
     <header class="header">
-        <router-link :to="{name: 'home'}" exact class="header__logo">
+        <router-link :to="{name: 'home'}" class="header__logo">
             <img src="./../assets/images/logo.png" alt="">
         </router-link>
         <div class="header__navs" role="navigation">
 
-            <router-link :to="{name: 'home'}" exact class="header__nav-item" active-class="active">Home</router-link>
+            <router-link :to="{name: 'home'}" class="header__nav-item" active-class="active">Home</router-link>
 
             <template v-if="isLoggedIn">
 
@@ -19,7 +19,7 @@
 
             </template>
             
-            <template v-if="!isLoggedIn">
+            <template v-if="isAnonymous">
 
                 <router-link :to="{name: 'login'}" class="header__nav-item" active-class="active">Log in</router-link>
                 <router-link :to="{name: 'register'}" class="header__nav-item" active-class="active">Sign up</router-link>
@@ -31,16 +31,25 @@
 </template>
 
 <script>
-
-import {mapState} from 'vuex'
-
+import {getterTypes} from '@/store/modules/auth'
+import {mapGetters} from 'vuex'
 export default({
     name: 'app-header',
     computed:{
-    ...mapState({
-      currentUser: state => state.auth.currentUser,
-      isLoggedIn: state => state.auth.isLoggedIn 
-    })
+        ...mapGetters({
+            currentUser: getterTypes.currentUser,
+            isLoggedIn: getterTypes.isLoggedIn,
+            isAnonymous: getterTypes.isAnonymous
+        })
+    // currentUser(){
+    //     return this.$store.getters[getterTypes.currentUser]
+    // },
+    // isLoggedIn(){
+    //     return this.$store.getters[getterTypes.isLoggedIn]
+    // },
+    // isAnonymous(){
+    //      return this.$store.getters[getterTypes.isAnonymous]
+    // }
   }
 })
 </script>
