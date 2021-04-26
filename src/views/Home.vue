@@ -30,9 +30,6 @@ methods: {
     console.log(post)
   }
   },
-
-
-
 async mounted(){
 
   this.fetchPosts();

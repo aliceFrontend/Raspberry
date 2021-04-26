@@ -41,6 +41,12 @@ const routes = [
     component: Post
   },
   {
+    path: '/admin',
+    // name: 'DraftAdmin',
+    // component: DraftAdmin
+    redirect: '/http://localhost/blog.ru/#'
+  },
+  {
     path: '/404',
     name: '404',
     component: NotFound
