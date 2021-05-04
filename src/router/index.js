@@ -6,6 +6,7 @@ import Login from '@/views/Login'
 import NotFound from '@/views/NotFound'
 import Post from '@/views/Post'
 import Form from '@/components/Form'
+import Settings from '@/views/Settings'
 
 Vue.use(VueRouter)
 
@@ -41,11 +42,16 @@ const routes = [
     component: Post
   },
   {
-    path: '/admin',
-    // name: 'DraftAdmin',
-    // component: DraftAdmin
-    redirect: '/http://localhost/blog.ru/#'
+    path: '/settings',
+    name: 'settings',
+    component: Settings
   },
+  // {
+  //   path: '/admin',
+  //   // name: 'DraftAdmin',
+  //   // component: DraftAdmin
+  //   redirect: '/http://localhost/blog.ru/#'
+  // },
   {
     path: '/404',
     name: '404',
