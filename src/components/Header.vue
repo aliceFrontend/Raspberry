@@ -17,7 +17,7 @@
                 {{ currentUser.username }}
                 </router-link> 
                 <!-- <router-link to="http://localhost/blog.ru/#">Admin</router-link> -->
-                <a href="http://localhost/blog.ru/#">Admin</a>
+                <!-- <a href="http://localhost/blog.ru/#">Admin</a> -->
 
             </template>
             
