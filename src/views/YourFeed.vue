@@ -16,7 +16,7 @@ import AppFeed from '@/components/Feed'
 import AppPopularTags from '@/components/PopularTags'
 // import AppFeedToggler from '@/components/FeedToggler'
 export default({
-    name: 'AppGlobalFeed',
+    name: 'AppYourFeed',
     components:{ 
         AppFeed, 
         AppPopularTags,
@@ -24,7 +24,7 @@ export default({
     },
     data(){
         return{
-             apiUrl: '/articles'
+             apiUrl: '/articles/feed'
         }
     }
 })

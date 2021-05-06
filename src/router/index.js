@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import Home from '@/views/Home'
 import GlobalFeed from '@/views/GlobalFeed'
+import YourFeed from '@/views/YourFeed'
+import TagFeed from '@/views/TagFeed'
 import Register from '@/views/Register'
 import Login from '@/views/Login'
 import NotFound from '@/views/NotFound'
@@ -12,11 +13,6 @@ import Settings from '@/views/Settings'
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'home',
-  //   component: Home
-  // },
   {
     path: '/',
     name: 'home',
@@ -25,12 +21,12 @@ const routes = [
   {
     path: '/feed',
     name: 'yourFeed',
-    component: GlobalFeed
+    component: YourFeed
   },
   {
     path: '/tags/:slug',
     name: 'tag',
-    component: GlobalFeed
+    component: TagFeed
   },
   {
     path: '/article/new',

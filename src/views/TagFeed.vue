@@ -4,7 +4,7 @@
       Raspberry
     </div>
     <div class="home__body"> 
-      <!-- <AppFeedToggler/> -->
+      <!-- <AppFeedToggler :tag-name="tagName"/> -->
       <AppFeed :api-url="apiUrl"/>
       <AppPopularTags/>
     </div>
@@ -16,15 +16,18 @@ import AppFeed from '@/components/Feed'
 import AppPopularTags from '@/components/PopularTags'
 // import AppFeedToggler from '@/components/FeedToggler'
 export default({
-    name: 'AppGlobalFeed',
+    name: 'AppTagFeed',
     components:{ 
         AppFeed, 
         AppPopularTags,
         // AppFeedToggler
     },
-    data(){
-        return{
-             apiUrl: '/articles'
+    computed:{
+      tagName(){
+        return this.$route.params.slug
+      },
+        apiUrl(){
+            return `/articles?tag=${this.tagName}`
         }
     }
 })

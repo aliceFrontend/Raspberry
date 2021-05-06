@@ -3,8 +3,8 @@ import {setItem} from '@/helpers/persistanceStorage'
 
 const state = {
   isSubmitting: false,
-  isLoading: false,
   isLoggedIn: null,
+  isLoading: false,
   currentUser: null,
   validationErrors: null
 }
@@ -18,21 +18,23 @@ export const mutationTypes = {
   loginSuccess: '[auth] Login success',
   loginFailure: '[auth] Login failure',
 
-  getCurrentUserStart: '[auth] getCurrentUser start',
-  getCurrentUserSuccess: '[auth] getCurrentUser success',
-  getCurrentUserFailure: '[auth] getCurrentUser failure'
+  getCurrentUserStart: '[auth] Get current user start',
+  getCurrentUserSuccess: '[auth] Get current user success',
+  getCurrentUserFailure: '[auth] Get current user failure'
 }
 
 export const actionTypes = {
   register: '[auth] Register',
   login: '[auth] Login',
-  getCurrentUser: '[auth] getCurrentUser'
+  getCurrentUser: '[auth] Get current user'
 }
+
 export const getterTypes = {
   currentUser: '[auth] currentUser',
-  isLoggedIn: '[auth] isLoggedin',
+  isLoggedIn: '[auth] isLoggedIn',
   isAnonymous: '[auth] isAnonymous'
 }
+
 const getters = {
   [getterTypes.currentUser]: state => {
     return state.currentUser
@@ -77,8 +79,8 @@ const mutations = {
   },
   [mutationTypes.getCurrentUserSuccess](state, payload) {
     state.isLoading = false
-    state.currentUser = payload
     state.isLoggedIn = true
+    state.currentUser = payload
   },
   [mutationTypes.getCurrentUserFailure](state) {
     state.isLoading = false
