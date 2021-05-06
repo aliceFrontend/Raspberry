@@ -1,7 +1,7 @@
 <template>
     <div class="home__tags">
-        <div v-if="isLoading">Loading...</div>
-        <div v-if="error">Something bad happened</div>
+        <AppLoading v-if="isLoading"/>
+        <AppErrorMessage v-if="error"/>
 
         <div class="popularTags" v-if="popularTags">
             <div class="popularTags__wrap">
@@ -22,6 +22,8 @@
 <script>
 import {mapState} from 'vuex'
 import {actionTypes} from '@/store/modules/popularTags'
+import AppLoading from '@/components/Loading'
+import AppErrorMessage from '@/components/ErrorMessage'
 export default({
     name: 'AppPopularTags',
     computed:{
@@ -31,6 +33,10 @@ export default({
             popularTags: state => state.popularTags.data,
         })
     },
+    components:{
+        AppLoading,
+        AppErrorMessage
+    },
     mounted(){
         this.$store.dispatch(actionTypes.getPopularTags)
     }
@@ -39,17 +45,21 @@ export default({
 
 <style>
 .popularTags{
-    padding: 0 15px 0 15px;
+    padding: 0 60px 0 15px;
     min-height: 1px;
-    flex: 0 0 25%;
-    max-width: 25%;
+    /* flex: 0 0 25%; */
+    /* max-width: 25%; */
+
+
+    /* добавленное  */
+     /* max-width: 50%; */
+    /* конец добавленного */
 }
 .popularTags__wrap{
     padding: 5px 10px 10px 10px;
     background-color: #E3E6EC;
     border-radius: 4px;
     border: 1px solid red;
-    /* #f3f3f3 */
 }
 .popularTags__title{
     padding: 20px 0 0 0;
@@ -72,4 +82,9 @@ export default({
     background-color: #7f6dfc;
     color: #fff;
 }
+/* добавленное  */
+.home__tags{
+    width: 27%;
+}
+/* конец добавленного */
 </style>

@@ -3,7 +3,7 @@
     <div class="home__title">
       Raspberry
     </div>
-    <div class="home__posts"> 
+    <div class="home__body"> 
     <AppFeed :api-url="apiUrl"/>
     <AppPopularTags/>
     </div>
@@ -41,7 +41,10 @@ body{
   text-align: start;
   font: 600 140px/150px 'Poppins', sans-serif;
 }
-/* .home__posts{
+/* добавленное  */
+.home__body{
   display: flex;
-} */
+  width: 100%;
+}
+/* конец добавленного */
 </style>

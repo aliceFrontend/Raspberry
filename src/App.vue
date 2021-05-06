@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <app-header></app-header>
+    <AppHeader/>
     <router-view></router-view>
   </div>
 </template>
@@ -13,12 +13,12 @@
 
 <script>
 
-import Header from '@/components/Header.vue';
+import AppHeader from '@/components/Header.vue';
 import {actionTypes} from '@/store/modules/auth'
 export default({
  name: 'app',
  components: { 
-   'app-header':Header 
+   AppHeader 
   },
   mounted(){
     this.$store.dispatch(actionTypes.getCurrentUser)

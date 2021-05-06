@@ -1,13 +1,14 @@
 <template>
-<div class="home__block"> 
-    <div class="home__loading" v-if="isLoading">Loading...</div>
-    <div class="home__error" v-if="error">Something bad happed</div> 
+<div class="home__posts"> 
+    <!-- <div class="home__loading" v-if="isLoading">Loading...</div> -->
+    <AppLoading v-if="isLoading"/>
+    <AppErrorMessage v-if="error"/> 
 
     <div class="feed" v-if="feed">
-        <div class="home__wrap">
-            <div class="home__post" v-for="(article, index) in feed.articles" :key="index">
+        <div class="posts__wrap">
+            <div class="posts" v-for="(article, index) in feed.articles" :key="index">
                 <div class="post__wrap">
-                    <div class="item-home__image">
+                    <div class="item-post__image">
                     <!-- <img :src="require(`./../assets/images/${post.post_image}.jpg`)" alt=""> -->
                         <img src="./../assets/images/thumb_article1.jpg" alt="">
 
@@ -16,11 +17,11 @@
                         </div> -->
                     </div>
 
-                    <div class="item-home__content">
+                    <div class="item-post__content">
                         <router-link :to="{name: 'article', params: {slug: article.slug}}">
-                            <div class="item-home__data">{{ article.createdAt }}</div>
-                            <div class="item-home__title">{{ article.title }}</div>
-                            <div class="item-home__subtitle">{{ article.description }}</div>
+                            <div class="item-post__data">{{ article.createdAt }}</div>
+                            <div class="item-post__title">{{ article.title }}</div>
+                            <div class="item-post__subtitle">{{ article.description }}</div>
                         </router-link>
                     </div>
                 </div>
@@ -37,6 +38,8 @@ import {actionTypes} from '@/store/modules/feed'
 import AppPagination from '@/components/Pagination'
 import {limit} from '@/helpers/vars'
 import {stringify, parseUrl} from 'query-string'
+import AppLoading from '@/components/Loading'
+import AppErrorMessage from '@/components/ErrorMessage'
 
 export default {
   name: 'AppFeed',
@@ -47,7 +50,9 @@ export default {
     }
   },
   components: {
-    AppPagination
+    AppPagination,
+    AppLoading,
+    AppErrorMessage
   },
   computed: {
     ...mapState({
@@ -93,37 +98,37 @@ export default {
 </script>
 
 <style>
-.item-home__content {
+.item-post__content {
   padding: 30px 20px 40px 0px;
 }
-.item-home__image {
+.item-post__image {
   position: relative;
   padding: 61% 0 0 0;
 }
-.item-home__image img {
+.item-post__image img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   border-radius: 8px;
 }
-.item-home__data {
+.item-post__data {
   font: normal 14px/14px 'Poppins', sans-serif;
   color: #000000;
   opacity: 0.5;
   margin-bottom: 16px;
 }
-.item-home__title {
+.item-post__title {
   font: 500 28px/34px 'Poppins', sans-serif;
   letter-spacing: 0px;
   color: #121212;
   margin-bottom: 16px;
 }
-.item-home__subtitle {
+.item-post__subtitle {
   font: 200 15px/25px 'Poppins', sans-serif;
   color: #323947;
 }
-.home__wrap{
+.posts__wrap{
   padding: 0 30px 0 30px;  
   display: flex;
   flex-wrap: wrap;
@@ -131,25 +136,14 @@ export default {
   max-width: 1300px;
   margin: 0 auto;
 }
-.home__post{
+.posts{
   flex: 1 1 calc(100%/3 - 30px);
   margin: 0 23px 0 23px;
   box-sizing: border-box;
   min-width: 335px;
   max-width: 340px; 
 }
-.home__loading{
-    padding: 88px 200px 88px 200px;
-    text-align: center;
-    font: 600 100px/110px 'Poppins', sans-serif;
+.home__posts{
+  width: 73%;
 }
-/* .item-home__isFavorite{
-    position: relative;
-}
-.item-home__isFavorite img{
-    width: 7%;
-    position: absolute;
-    top: -190px;
-    left: 300px;
-} */
 </style>
