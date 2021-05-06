@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import GlobalFeed from '@/views/GlobalFeed'
-import YourFeed from '@/views/YourFeed'
+// import YourFeed from '@/views/YourFeed'
 import TagFeed from '@/views/TagFeed'
 import Register from '@/views/Register'
 import Login from '@/views/Login'
+
 import NotFound from '@/views/NotFound'
 import Post from '@/views/Post'
 import Form from '@/components/Form'
@@ -18,11 +20,11 @@ const routes = [
     name: 'home',
     component: GlobalFeed
   },
-  {
-    path: '/feed',
-    name: 'yourFeed',
-    component: YourFeed
-  },
+  // {
+  //   path: '/feed',
+  //   name: 'yourFeed',
+  //   component: YourFeed
+  // },
   {
     path: '/tags/:slug',
     name: 'tag',

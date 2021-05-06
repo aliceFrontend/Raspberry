@@ -29,7 +29,7 @@ import {actionTypes} from '@/store/modules/auth'
 import ValidationErrors from '@/components/ValidationErrors'
 import {mapState} from 'vuex'
 export default{
-    name: 'app-register',
+    name: 'AppRegister',
     data(){
         return {
             email: '',

@@ -29,11 +29,11 @@ const mutations = {
     state.isLoading = false
   }
 }
-//apiUrl диструктуризация
+
 const actions = {
   [actionTypes.getFeed](context, {apiUrl}) {
     return new Promise(resolve => {
-      context.commit(mutationTypes.getFeedStart)
+      context.commit(mutationTypes.getFeedStart, apiUrl)
       feedApi
         .getFeed(apiUrl)
         .then(response => {
