@@ -4,20 +4,22 @@
       Raspberry
     </div>
     <div class="home__posts"> 
-    <feed :api-url="apiUrl"/>
+    <AppFeed :api-url="apiUrl"/>
+    <AppPopularTags/>
     </div>
     <!-- <div class="home__tags">
-        POPULAR TAGS
+        <AppPopularTags/>
     </div> -->
   </div>
 </template>
 
 <script>
-import Feed from '@/components/Feed'
+import AppFeed from '@/components/Feed'
+import AppPopularTags from '@/components/PopularTags'
 export default({
     name: 'app-globalFeed',
     components:{ 
-        Feed
+        AppFeed, AppPopularTags
     },
     data(){
         return{
@@ -39,4 +41,7 @@ body{
   text-align: start;
   font: 600 140px/150px 'Poppins', sans-serif;
 }
+/* .home__posts{
+  display: flex;
+} */
 </style>

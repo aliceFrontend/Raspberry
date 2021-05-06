@@ -41,7 +41,7 @@ export default({
 .pagination{
     display: flex;
     flex-wrap: wrap;
-    padding: 0 30px 0 30px;
+    padding: 0 30px 30px 30px;
     max-width: 1300px;
     margin: 0 auto;
     justify-content: space-between;

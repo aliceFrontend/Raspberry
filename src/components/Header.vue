@@ -9,7 +9,7 @@
 
             <template v-if="isLoggedIn">
 
-                 <router-link :to="{name: 'addPost'}" class="header__nav-item" active-class="active">New Article</router-link>
+                 <router-link :to="{name: 'createArticle'}" class="header__nav-item" active-class="active">New Article</router-link>
                  <router-link :to="{name: 'settings'}" class="header__nav-item" active-class="active">Settings</router-link> 
                  <router-link :to="{name: 'userProfile', params: {slug: currentUser.username}}" class="header__nav-item" active-class="active">
                 <img :src="currentUser.image" alt=""> 
