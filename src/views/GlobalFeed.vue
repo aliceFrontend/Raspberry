@@ -4,12 +4,9 @@
       Raspberry
     </div>
     <div class="home__body"> 
-    <AppFeed :api-url="apiUrl"/>
-    <AppPopularTags/>
+      <AppFeed :api-url="apiUrl"/>
+      <AppPopularTags/>
     </div>
-    <!-- <div class="home__tags">
-        <AppPopularTags/>
-    </div> -->
   </div>
 </template>
 
@@ -41,10 +38,13 @@ body{
   text-align: start;
   font: 600 140px/150px 'Poppins', sans-serif;
 }
-/* добавленное  */
 .home__body{
   display: flex;
-  width: 100%;
+  width: 95%;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0 30px 0 20px;
+  max-width: 1600px;
 }
-/* конец добавленного */
+
 </style>

@@ -26,6 +26,13 @@ export default({
 })
 </script>
 
+<style>
+.layout{
+  max-width: 1920px;
+  margin: 0 auto;
+}
+</style>
+
 
 
 

@@ -45,21 +45,13 @@ export default({
 
 <style>
 .popularTags{
-    padding: 0 60px 0 15px;
     min-height: 1px;
-    /* flex: 0 0 25%; */
-    /* max-width: 25%; */
-
-
-    /* добавленное  */
-     /* max-width: 50%; */
-    /* конец добавленного */
+    /* position: fixed; */
 }
 .popularTags__wrap{
     padding: 5px 10px 10px 10px;
-    background-color: #E3E6EC;
     border-radius: 4px;
-    border: 1px solid red;
+    border: 1px solid #9181FF;
 }
 .popularTags__title{
     padding: 20px 0 0 0;
@@ -82,9 +74,7 @@ export default({
     background-color: #7f6dfc;
     color: #fff;
 }
-/* добавленное  */
 .home__tags{
     width: 27%;
 }
-/* конец добавленного */
 </style>

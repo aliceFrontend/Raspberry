@@ -6,7 +6,7 @@
 
     <div class="feed" v-if="feed">
         <div class="posts__wrap">
-            <div class="posts" v-for="(article, index) in feed.articles" :key="index">
+            <div class="post" v-for="(article, index) in feed.articles" :key="index">
                 <div class="post__wrap">
                     <div class="item-post__image">
                     <!-- <img :src="require(`./../assets/images/${post.post_image}.jpg`)" alt=""> -->
@@ -129,16 +129,12 @@ export default {
   color: #323947;
 }
 .posts__wrap{
-  padding: 0 30px 0 30px;  
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  max-width: 1300px;
-  margin: 0 auto;
 }
-.posts{
+.post{
   flex: 1 1 calc(100%/3 - 30px);
-  margin: 0 23px 0 23px;
+  margin: 0 15px 0 15px;
   box-sizing: border-box;
   min-width: 335px;
   max-width: 340px; 
