@@ -1,6 +1,5 @@
 <template>
 <div class="home__posts"> 
-    <!-- <div class="home__loading" v-if="isLoading">Loading...</div> -->
     <AppLoading v-if="isLoading"/>
     <AppErrorMessage v-if="error"/> 
 
