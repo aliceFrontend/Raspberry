@@ -2,7 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import GlobalFeed from '@/views/GlobalFeed'
+
 // import YourFeed from '@/views/YourFeed'
+
 import TagFeed from '@/views/TagFeed'
 import Register from '@/views/Register'
 import Login from '@/views/Login'

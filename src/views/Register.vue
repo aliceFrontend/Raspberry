@@ -25,31 +25,73 @@
 </template>
 
 <script>
-import {actionTypes} from '@/store/modules/auth'
-import ValidationErrors from '@/components/ValidationErrors'
-import {mapState} from 'vuex'
-export default{
-    name: 'AppRegister',
-    data(){
-        return {
-            email: '',
-            username: '',
-            password: '', 
-        }
-    },
-    computed:{
-         ...mapState({
-            isSubmitting: state => state.auth.isSubmitting,
-            validationErrors: state => state.auth.validationErrors
-        })
+// import {actionTypes} from '@/store/modules/auth'
+// import ValidationErrors from '@/components/ValidationErrors'
+// import {mapState} from 'vuex'
+// export default{
+//     name: 'AppRegister',
+//     data(){
+//         return {
+//             email: '',
+//             username: '',
+//             password: '', 
+//         }
+//     },
+//     computed:{
+//          ...mapState({
+//             isSubmitting: state => state.auth.isSubmitting,
+//             validationErrors: state => state.auth.validationErrors
+//         })
     // isSubmitting() {
     //   return this.$store.state.auth.isSubmitting
     //  },
     //  validationErrors(){
     //      return this.$store.state.auth.validationErrors
     //  }
-    },
-    methods: {
+//     },
+//     methods: {
+//     onSubmit() {
+//       this.$store
+//         .dispatch(actionTypes.register, {
+//           email: this.email,
+//           username: this.username,
+//           password: this.password
+//         })
+//         .then(() => {
+//           this.$router.push({name: 'home'})
+//         })
+//     },
+//   },
+//   components: {ValidationErrors}
+// }
+</script>
+
+
+
+<script>
+import {mapState} from 'vuex'
+
+import McvValidationErrors from '@/components/ValidationErrors.vue'
+import {actionTypes} from '@/store/modules/auth'
+export default {
+  name: 'McvRegister',
+  components: {
+    McvValidationErrors
+  },
+  data() {
+    return {
+      email: '',
+      password: '',
+      username: ''
+    }
+  },
+  computed: {
+    ...mapState({
+      isSubmitting: state => state.auth.isSubmitting,
+      validationErrors: state => state.auth.validationErrors
+    })
+  },
+  methods: {
     onSubmit() {
       this.$store
         .dispatch(actionTypes.register, {
@@ -58,13 +100,14 @@ export default{
           password: this.password
         })
         .then(() => {
-          this.$router.push({name: 'home'})
+          this.$router.push({name: 'globalFeed'})
         })
-    },
-  },
-  components: {ValidationErrors}
+    }
+  }
 }
 </script>
+
+
 <style>
 .auth{
     max-width: 600px;

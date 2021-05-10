@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div id="app" class="layout">
     <AppHeader/>
     <router-view></router-view>
   </div>
@@ -15,15 +15,16 @@
 
 import AppHeader from '@/components/Header.vue';
 import {actionTypes} from '@/store/modules/auth'
-export default({
- name: 'app',
- components: { 
-   AppHeader 
+
+export default {
+  name: 'App',
+  components: {
+    AppHeader
   },
-  mounted(){
+  mounted() {
     this.$store.dispatch(actionTypes.getCurrentUser)
   }
-})
+}
 </script>
 
 <style>

@@ -34,48 +34,49 @@
 
 <script>
 import {mapState} from 'vuex'
+import {stringify, parseUrl} from 'query-string'
+
 import {actionTypes} from '@/store/modules/feed'
 import AppPagination from '@/components/Pagination'
 import {limit} from '@/helpers/vars'
-import {stringify, parseUrl} from 'query-string'
 import AppLoading from '@/components/Loading'
 import AppErrorMessage from '@/components/ErrorMessage'
 
 export default {
   name: 'AppFeed',
+  components: {
+    AppPagination,
+    AppLoading,
+    AppErrorMessage
+  },
   props: {
     apiUrl: {
       type: String,
       required: true
     }
   },
-  components: {
-    AppPagination,
-    AppLoading,
-    AppErrorMessage
-  },
   computed: {
     ...mapState({
       isLoading: state => state.feed.isLoading,
       feed: state => state.feed.data,
       error: state => state.feed.error
-    }), 
-    limit(){
+    }),
+    limit() {
       return limit
     },
-     currentPage(){
-       return Number(this.$route.query.page || '1')
-     },
-     baseUrl(){
-       return this.$route.path
-     },
-     offset(){
-       return this.currentPage * limit - limit  
-     }
+    baseUrl() {
+      return this.$route.path
+    },
+    currentPage() {
+      return Number(this.$route.query.page || '1')
+    },
+    offset() {
+      return this.currentPage * limit - limit
+    }
   },
   watch: {
-    currentPage(){
-    this.fetchFeed()
+    currentPage() {
+      this.fetchFeed()
     }
   },
   mounted() {
@@ -92,10 +93,10 @@ export default {
       const apiUrlWithParams = `${parsedUrl.url}?${stringifiedParams}`
       this.$store.dispatch(actionTypes.getFeed, {apiUrl: apiUrlWithParams})
     }
-  } 
-
+  }
 }
 </script>
+
 
 <style>
 .item-post__content {

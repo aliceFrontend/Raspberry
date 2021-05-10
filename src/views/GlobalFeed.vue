@@ -4,7 +4,6 @@
       Raspberry
     </div>
     <div class="home__body"> 
-      <!-- <AppFeedToggler/> -->
       <AppFeed :api-url="apiUrl"/>
       <AppPopularTags/>
     </div>
@@ -14,13 +13,11 @@
 <script>
 import AppFeed from '@/components/Feed'
 import AppPopularTags from '@/components/PopularTags'
-// import AppFeedToggler from '@/components/FeedToggler'
 export default({
     name: 'AppGlobalFeed',
     components:{ 
         AppFeed, 
         AppPopularTags,
-        // AppFeedToggler
     },
     data(){
         return{

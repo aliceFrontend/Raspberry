@@ -23,26 +23,66 @@
 </template>
 
 <script>
-import {actionTypes} from '@/store/modules/auth'
-import ValidationErrors from '@/components/ValidationErrors'
+// import {actionTypes} from '@/store/modules/auth'
+// import ValidationErrors from '@/components/ValidationErrors'
+// import {mapState} from 'vuex'
+
+// export default{
+//     name: 'AppLogin',
+//     data(){
+//         return {
+//             email: '',
+//             password: '', 
+//         }
+//     },
+//     components: {ValidationErrors},
+//     computed:{
+//         ...mapState({
+//             isSubmitting: state => state.auth.isSubmitting,
+//             validationErrors: state => state.auth.validationErrors
+//         })
+//     },
+//     methods: {
+//     onSubmit() {
+//       this.$store
+//         .dispatch(actionTypes.login, {
+//           email: this.email,
+//           password: this.password
+//         })
+//         .then(() => {
+//           this.$router.push({name: 'home'})
+//         })
+//     },
+//   }
+// }
+ </script>
+
+
+ 
+<script>
 import {mapState} from 'vuex'
 
-export default{
-    name: 'AppLogin',
-    data(){
-        return {
-            email: '',
-            password: '', 
-        }
-    },
-    components: {ValidationErrors},
-    computed:{
-        ...mapState({
-            isSubmitting: state => state.auth.isSubmitting,
-            validationErrors: state => state.auth.validationErrors
-        })
-    },
-    methods: {
+import McvValidationErrors from '@/components/ValidationErrors.vue'
+import {actionTypes} from '@/store/modules/auth'
+
+export default {
+  name: 'McvLogin',
+  components: {
+    McvValidationErrors
+  },
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  computed: {
+    ...mapState({
+      isSubmitting: state => state.auth.isSubmitting,
+      validationErrors: state => state.auth.validationErrors
+    })
+  },
+  methods: {
     onSubmit() {
       this.$store
         .dispatch(actionTypes.login, {
@@ -52,7 +92,7 @@ export default{
         .then(() => {
           this.$router.push({name: 'home'})
         })
-    },
+    }
   }
 }
 </script>
