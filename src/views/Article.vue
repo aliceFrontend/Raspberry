@@ -53,12 +53,13 @@
                 <p>Menurut saya design bukan tentang benar atau salah, tapi menyesuaikan dengan konteks dan kebutuhan.</p> -->
                 <!-- УДАЛИТЬ -->
             </div>
-            TAGLIST
+            <AppTagList :tags="article.tagList"/>
         </div>
     </div>
 </template>
 
 <script>
+import AppTagList from '@/components/TagList'
 import AppLoading from '@/components/Loading'
 import AppErrorMessage from '@/components/ErrorMessage'
 import {actionTypes as articleActionTypes} from '@/store/modules/article'
@@ -69,7 +70,8 @@ export default{
     name: 'AppArticle',
     components:{
         AppLoading,
-        AppErrorMessage
+        AppErrorMessage,
+        AppTagList
     },
     mounted(){
         this.$store.dispatch(articleActionTypes.getArticle, {

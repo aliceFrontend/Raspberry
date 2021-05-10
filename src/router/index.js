@@ -7,8 +7,9 @@ import Register from '@/views/Register'
 import Login from '@/views/Login'
 
 import NotFound from '@/views/NotFound'
-// import Post from '@/views/Post'
+
 import Article from '@/views/Article'
+import CreateArticle from '@/views/CreateArticle'
 import Form from '@/components/Form'
 import Settings from '@/views/Settings'
 
@@ -28,7 +29,7 @@ const routes = [
   {
     path: '/article/new',
     name: 'createArticle',
-    component: Form
+    component: CreateArticle
   },
   {
     path: '/articles/:slug',
