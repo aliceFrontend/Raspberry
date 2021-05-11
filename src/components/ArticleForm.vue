@@ -9,13 +9,16 @@
             </p> -->
             <!-- <AppValidationErrors v-if="error"/> -->
         <!-- </div>    -->
-        VALIDATION ERRORS
+            <AppValidationErrors v-if="errors" :validation-errors="errors"/>
             <form action="/" @submit.prevent="onSubmit" >
                 <div class="form__heading">
                     <input type="text" placeholder="Title" v-model="title">
                 </div>
+                <div class="form__description">
+                    <input type="text" placeholder="Description" v-model="description">
+                </div>
                 <div class="form__body">
-                        <textarea name="" id="" cols="10" rows="18" placeholder="Subtitle" v-model="body"></textarea>
+                    <textarea name="" id="" cols="10" rows="13" placeholder="Content" v-model="body"></textarea>
                 </div>
                 <div class="form__tags">
                     <input type="text" placeholder="Enter tags" v-model="tagList">
@@ -35,11 +38,11 @@
 </template>
 
 <script>
-// import AppValidationErrors from '@/components/ValidationErrors'
+import AppValidationErrors from '@/components/ValidationErrors'
 export default{
     name: 'AppArticleForm',
     components:{
-        // AppValidationErrors
+        AppValidationErrors
     },
     props:{
         initialValues:{
@@ -58,6 +61,7 @@ export default{
     data(){
         return {
             title: '',
+            description: '',
             body: '',
             tagList: '',
             // image: ''
@@ -67,8 +71,9 @@ export default{
         onSubmit(){
             const form = {
                 title: this.title,
+                description: this.description,
                 body: this.body,
-                tagList: this.this,
+                tagList: this.tagList.split(' ')
                 // image: this.image
             }
             this.$emit('articleSubmit', form)
@@ -79,13 +84,13 @@ export default{
 
 
 <style>
-.form__heading, .form__body, .form__tags{
+.form__heading, .form__description,.form__body, .form__tags{
     margin: 0 0 10px 0;
 }
-.form__heading, .form__tags{
+.form__heading, .form__description, .form__tags{
     line-height: 64px;
 }
-.form__heading input, .form__tags input, .form__body textarea{
+.form__heading input,.form__description input ,.form__tags input, .form__body textarea{
     width: 100%;
     padding: 0 0px 0 15px;
     border: none;
@@ -93,7 +98,9 @@ export default{
     font-family: 'IBM Plex Sans';
     font-size: 18px;
 }
-.form__heading input::placeholder, .form__tags input::placeholder, .form__body textarea::placeholder, .form__image input::placeholder{
+.form__heading input::placeholder,.form__description input::placeholder, 
+.form__tags input::placeholder, .form__body textarea::placeholder, 
+.form__image input::placeholder{
     font: 500 18px/23px 'IBM Plex Sans';
 }
 .form__body textarea::placeholder{
