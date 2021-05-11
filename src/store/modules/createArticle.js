@@ -12,7 +12,7 @@ export const mutationTypes = {
 }
 
 export const actionTypes = {
-  createArticle: '[createArticle Create article]'
+  createArticle: '[createArticle] Create article'
 }
 
 const mutations = {
