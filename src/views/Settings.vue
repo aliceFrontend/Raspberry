@@ -1,35 +1,85 @@
 <template>
-    <div class="settings">
+    <div class="settings" v-if="currentUser">
         <div class="settings__title">
             Your Settings
         </div>
         <div class="settings__errors">
-            <!-- <ValidationErrors v-if="validationErrors" :validation-errors = "validationErrors"/> -->
+            <AppValidationErrors v-if="validationErrors" :validation-errors = "validationErrors"/>
         </div>
         <form @submit.prevent="onSubmit">
             <div class="settings__username">
-                <input type="text" placeholder="Username">
+                <input type="text" placeholder="Username" v-model="form.username">
             </div>
              <div class="settings__about">
-                <textarea name="" id="" cols="10" rows="13" placeholder="Short bio about you"></textarea>
+                <textarea name="" id="" cols="10" rows="13" placeholder="Short bio about you" v-model="form.bio"></textarea>
             </div>
             <div class="settings__email">
-                <input type="text" placeholder="Email">
+                <input type="text" placeholder="Email" v-model="form.email">
             </div>
              <div class="settings__newpassword">
-                <input type="password" placeholder="New password">
+                <input type="password" placeholder="New password" v-model="form.password">
             </div>
-            <button class="settings__btn" type="submit">Update Settings</button>
+            <button class="settings__btn" type="submit" :disabled="isSubmitting">Update Settings</button>
         </form>
         <hr>
-        <button class="settings__logout" type="submit">Or click here to logout.</button>
+        <button class="settings__logout" type="submit" @click="logout">Or click here to logout.</button>
     </div>
 </template>
 
 <script>
-export default({
-    name: 'settings'
-})
+import {mapState, mapGetters} from 'vuex'
+import {
+  getterTypes as authGetterTypes,
+  actionTypes as authActionTypes
+} from '@/store/modules/auth'
+import AppValidationErrors from '@/components/ValidationErrors'
+
+export default {
+  name: 'AppSettings',
+  components: {
+    AppValidationErrors
+  },
+  computed: {
+    ...mapState({
+      isSubmitting: state => state.settings.isSubmitting,
+      validationErrors: state => state.settings.validationErrors
+    }),
+    ...mapGetters({
+      currentUser: authGetterTypes.currentUser
+    }),
+    form() {
+      if (this.currentUser) {
+        return {
+          username: this.currentUser.username,
+          bio: this.currentUser.bio,
+          image: this.currentUser.image,
+          email: this.currentUser.email,
+          password: ''
+        }
+      }
+
+      return {
+        username: '',
+        bio: '',
+        image: '',
+        email: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    onSubmit() {
+      this.$store.dispatch(authActionTypes.updateCurrentUser, {
+        currentUserInput: this.form
+      })
+    },
+    logout() {
+      this.$store.dispatch(authActionTypes.logout).then(() => {
+        this.$router.push({name: 'home'})
+      })
+    }
+  }
+}
 </script>
 
 <style>
