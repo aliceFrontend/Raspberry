@@ -17,7 +17,7 @@
                 <input type="text" placeholder="Email" v-model="form.email">
             </div>
              <div class="settings__newpassword">
-                <input type="password" placeholder="New password" v-model="form.password">
+                <input type="password" placeholder="Password" v-model="form.password">
             </div>
             <button class="settings__btn" type="submit" :disabled="isSubmitting">Update Settings</button>
         </form>

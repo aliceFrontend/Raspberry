@@ -22,6 +22,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     list-style: none !important;
+    margin: 0 0 55px 0;
 }
 .tagList__item{
     font: 200 14px/19px 'Poppins', sans-serif;

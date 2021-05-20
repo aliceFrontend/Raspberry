@@ -7,9 +7,9 @@ import NotFound from '@/views/NotFound'
 import Article from '@/views/Article'
 import CreateArticle from '@/views/CreateArticle'
 import EditArticle from '@/views/EditArticle'
-
-// import Form from '@/components/Form'
 import Settings from '@/views/Settings'
+
+import UserProfile from '@/views/UserProfile'
 
 Vue.use(VueRouter)
 
@@ -47,12 +47,12 @@ const routes = [
   {
     path: '/profiles/:slug',
     name: 'userProfile',
-    component: GlobalFeed
+    component: UserProfile
   },
   {
     path: '/profiles/:slug/favorites',
     name: 'userProfileFavorites',
-    component: GlobalFeed
+    component: UserProfile
   },
   {
     path: '/register',
@@ -64,27 +64,6 @@ const routes = [
     name: 'login',
     component: Login
   },
-  // {
-  //   path: '/addPost',
-  //   name: 'addPost',
-  //   component: Form
-  // },
-  // {
-  //   path: '/editPost',
-  //   name: 'editPost',
-  //   component: Form
-  // },
-  // {
-  //   path: '/post',
-  //   name: 'post',
-  //   component: Post
-  // },
-  // {
-  //   path: '/admin',
-  //   // name: 'DraftAdmin',
-  //   // component: DraftAdmin
-  //   redirect: '/http://localhost/blog.ru/#'
-  // },
   {
     path: '/404',
     name: '404',
