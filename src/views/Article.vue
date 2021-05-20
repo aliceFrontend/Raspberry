@@ -55,6 +55,7 @@
             </div>
             <AppTagList :tags="article.tagList"/>
             <AppAddToFavorites :is-favorited="article.favorited" :article-slug="article.slug" :favorites-count="article.favoritesCount"/>
+            <AppComment/>
         </div>
     </div>
 </template>
@@ -67,13 +68,15 @@ import {actionTypes as articleActionTypes} from '@/store/modules/article'
 import {getterTypes as authGetterTypes} from '@/store/modules/auth'
 import {mapState, mapGetters} from 'vuex'
 import AppAddToFavorites from '@/components/AddToFavorites'
+import AppComment from '@/components/Comment'
 export default{
     name: 'AppArticle',
     components:{
         AppLoading,
         AppErrorMessage,
         AppTagList,
-        AppAddToFavorites
+        AppAddToFavorites,
+        AppComment
     },
     mounted(){
         this.$store.dispatch(articleActionTypes.getArticle, {

@@ -11,12 +11,12 @@
     </div>
     <div class="userProfile__switch">
       <ul class="userProfile__list">
-        <li>
+        <li class="userProfile__list-item">
           <router-link :to="{ name: 'userProfile', params: {slug: userProfile.username}}" :class="{active: routeName === 'userProfile'}">
             My Posts
           </router-link>
         </li>
-        <li>
+        <li class="userProfile__list-item">
           <router-link :to="{ name: 'userProfileFavorites', params: {slug: userProfile.username} }" :class="{active: routeName === 'userProfileFavorites'}">
             Favorites Posts
           </router-link>
@@ -149,15 +149,18 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.userProfile__list li{
+.userProfile__list-item{
   margin: 0 40px 0 0;
   font: 500 35px/41px 'Poppins', sans-serif;
   letter-spacing: 0px;
   color: #121212;
   transition: 0.3s;
 }
-.userProfile__list li:hover{
+.userProfile__list-item:hover{
   color: #6a56f5;
   cursor: pointer;
+}
+.userProfile__list-item:nth-child(2){
+  margin: 0 0px 0 0;
 }
 </style>
