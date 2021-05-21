@@ -1,26 +1,26 @@
 import commentApi from '@/api/comment'
 
 const state = {
-  isSubmitting: false,
+  // isSubmitting: false,
+  // currentUser: null,
+  data: null,
   isLoading: false,
-  currentUser: null,
-  validationErrors: null,
-  data: null
+  error: null
 }
 
 export const mutationTypes = {
   getCommentStart: '[comment] Get comment start',
   getCommentSuccess: '[comment] Get comment success',
-  getCommentFailure: '[comment] Get comment failure',
+  getCommentFailure: '[comment] Get comment failure'
 
-  deleteCommentStart: '[comment] Delete comment start',
-  deleteCommentSuccess: '[comment] Delete comment success',
-  deleteCommentFailure: '[comment] Delete comment failure'
+  // deleteCommentStart: '[comment] Delete comment start',
+  // deleteCommentSuccess: '[comment] Delete comment success',
+  // deleteCommentFailure: '[comment] Delete comment failure'
 }
 
 export const actionTypes = {
-  getComment: '[comment] Get comment',
-  deleteComment: '[comment] Delete comment'
+  getComment: '[comment] Get comment'
+  // deleteComment: '[comment] Delete comment'
 }
 
 const mutations = {
@@ -34,42 +34,42 @@ const mutations = {
   },
   [mutationTypes.getCommentFailure](state) {
     state.isLoading = false
-  },
+  }
 
-  [mutationTypes.deleteCommentStart]() {},
-  [mutationTypes.deleteCommentSuccess]() {},
-  [mutationTypes.deleteCommentFailure]() {}
+  // [mutationTypes.deleteCommentStart]() {},
+  // [mutationTypes.deleteCommentSuccess]() {},
+  // [mutationTypes.deleteCommentFailure]() {}
 }
 
 const actions = {
-  [actionTypes.getComment](context, {slug}) {
+  [actionTypes.getComment](context, {apiUrl}) {
     return new Promise(resolve => {
-      context.commit(mutationTypes.getCommentStart, slug)
+      context.commit(mutationTypes.getCommentStart)
       commentApi
-        .getComment(slug)
-        .then(comment => {
-          context.commit(mutationTypes.getCommentSuccess, comment)
-          resolve(comment)
+        .getComment(apiUrl)
+        .then(response => {
+          context.commit(mutationTypes.getCommentSuccess, response.data)
+          resolve(response.data)
         })
         .catch(() => {
           context.commit(mutationTypes.getCommentFailure)
         })
     })
-  },
-  [actionTypes.deleteComment](context, {slug}) {
-    return new Promise(resolve => {
-      context.commit(mutationTypes.deleteCommentStart, slug)
-      commentApi
-        .deleteComment(slug)
-        .then(() => {
-          context.commit(mutationTypes.deleteCommentSuccess)
-          resolve()
-        })
-        .catch(() => {
-          context.commit(mutationTypes.deleteCommentFailure)
-        })
-    })
   }
+  // [actionTypes.deleteComment](context, {slug}) {
+  //   return new Promise(resolve => {
+  //     context.commit(mutationTypes.deleteCommentStart, slug)
+  //     commentApi
+  //       .deleteComment(slug)
+  //       .then(() => {
+  //         context.commit(mutationTypes.deleteCommentSuccess)
+  //         resolve()
+  //       })
+  //       .catch(() => {
+  //         context.commit(mutationTypes.deleteCommentFailure)
+  //       })
+  //   })
+  // }
 }
 
 export default {

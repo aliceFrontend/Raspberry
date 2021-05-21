@@ -55,7 +55,7 @@
             </div>
             <AppTagList :tags="article.tagList"/>
             <AppAddToFavorites :is-favorited="article.favorited" :article-slug="article.slug" :favorites-count="article.favoritesCount"/>
-            <AppComment/>
+            <AppComment :api-url="apiUrl"/>
         </div>
     </div>
 </template>
@@ -71,6 +71,11 @@ import AppAddToFavorites from '@/components/AddToFavorites'
 import AppComment from '@/components/Comment'
 export default{
     name: 'AppArticle',
+    data(){
+        return {
+            apiUrl: `/articles/${this.$route.params.slug}/comments`
+        }
+    },
     components:{
         AppLoading,
         AppErrorMessage,

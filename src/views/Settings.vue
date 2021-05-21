@@ -115,8 +115,8 @@ export default {
 .settings__username input::placeholder, .settings__email input::placeholder, .settings__newpassword input::placeholder, .settings__about textarea::placeholder{
     font: 500 18px/23px 'IBM Plex Sans';
 }
-.settings__about textarea::placeholder{
-    padding: 20px 0 0 0;
+.settings__about textarea{
+    padding-top: 20px;
 }
 .settings__btn{
     padding: 18px 40.5px 17px 40.5px;

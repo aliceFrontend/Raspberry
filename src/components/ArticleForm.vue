@@ -103,8 +103,8 @@ export default{
 .form__image input::placeholder{
     font: 500 18px/23px 'IBM Plex Sans';
 }
-.form__body textarea::placeholder{
-    padding: 20px 0 0 0;
+.form__body textarea{
+    padding-top: 20px;
 }
 .form__image input {
   opacity: 0;

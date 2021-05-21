@@ -1,9 +1,7 @@
 import axios from '@/api/axios'
 
-const getComment = slug => {
-  return axios
-    .get(`/artices.${slug}/comments`)
-    .then(response => response.data.article)
+const getComment = apiUrl => {
+  return axios.get(apiUrl)
 }
 
 export default {
