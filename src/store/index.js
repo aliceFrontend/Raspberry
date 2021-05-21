@@ -11,6 +11,7 @@ import settings from '@/store/modules/settings'
 import addToFavorites from '@/store/modules/addToFavorites'
 import userProfile from '@/store/modules/userProfile'
 import comment from '@/store/modules/comment'
+import createComment from '@/store/modules/createComment'
 
 Vue.use(Vuex)
 
@@ -28,6 +29,7 @@ export default new Vuex.Store({
     settings,
     addToFavorites,
     userProfile,
-    comment
+    comment,
+    createComment
   }
 })
