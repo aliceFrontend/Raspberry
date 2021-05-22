@@ -1,40 +1,46 @@
 <template>
     <div class="comments">
-        <div class="comments__item">
-            <textarea name="" id="" cols="10" rows="7" placeholder="Write a comment..."></textarea>
+        <!-- ValidationErrors -->
+        <form class="comments__item" @submit.prevent="onSubmit">
+            <textarea name="" id="" cols="10" rows="7" placeholder="Write a comment..." v-model="body"></textarea>
             <div class="comments__footer">
-                <button class="comments__btn" type="submit"  :initialValues="initialValues" :errors="validationErrors" :isSubmitting="isSubmitting" @articleSubmit="onSubmit">
+                <button class="comments__btn" type="submit" :disable="isSubmitting">
                     Post Comment
                 </button>
             </div>   
-        </div>
+        </form>
     </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
-import {actionTypes} from '@/store/modules/createComment'
 export default{
     name: 'AppCommentFrom',
-    data(){
-        return {
+    props:{
         initialValues: {
-        body: '',
+        type: Object,
+        required: true
         },
-      }
+        errors:{
+            type: Object,
+            required: false
+        },
+        isSubmitting:{
+            type: Boolean,
+            required: true
+        }
     },
-    computed:{
-        ...mapState({
-            isSubmitting: state => state.createComment.isSubmitting,
-            validationErrors: state => state.createComment.error
-        })
+    data(){
+        return{
+            body: ''
+        }
     },
     methods:{
-        onSubmit(apiUrl) {
-      this.$store
-        .dispatch(actionTypes.createComment, {apiUrl})
-        .then()
-    }
+        onSubmit(){
+            const form = {
+                body: this.body
+            }
+            this.$emit('commentSubmit', form)
+        }
     }
 }
 </script>

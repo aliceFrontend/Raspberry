@@ -2,7 +2,7 @@
     <div class="comments__wrap">
         <AppLoading v-if="isLoading"/>
         <AppErrorMessage v-if="error"/> 
-        <AppCommentForm/>
+        <AppCommentForm :initial-values="initialValues" :errors="validationErrors" :is-submitting="isSubmitting" @commentSubmit="onSubmit"/>
     
         <div class="comments__list" v-if="data">
             <div class="comments__list-item" v-for="(comment, index) in data.comments" :key="index">
@@ -22,6 +22,7 @@
 
 <script>
 import {actionTypes} from '@/store/modules/comment'
+import {actionTypes as actionTypesCreateComment} from '@/store/modules/createComment'
 import {mapState} from 'vuex'
 import AppLoading from '@/components/Loading'
 import AppErrorMessage from '@/components/ErrorMessage'
@@ -43,13 +44,36 @@ export default{
      ...mapState({
          isLoading: state => state.comment.isLoading,
          data: state => state.comment.data,
-         error: state => state.comment.error
+         error: state => state.comment.error,
+
+         isSubmitting: state => state.createComment.isSubmitting,
+         validationErrors: state => state.createComment.validationErrors
      }),
  },
  mounted(){
      this.$store.dispatch(actionTypes.getComment, {apiUrl: this.apiUrl})
-     console.log(this.apiUrl)
- }  
+     
+     this.$store.dispatch(actionTypesCreateComment.createComment,{
+         slug: this.$route.params.slug
+     })
+     console.log('that:   '+ this.$route.params.slug)
+ }, 
+
+
+
+
+ data(){
+     return{
+         initialValues:{
+             body: ''
+         },
+     }
+ },
+ methods:{
+     onSubmit(commentInput){
+         this.$store.dispatch(actionTypesCreateComment.createComment, {commentInput}).then()
+     }
+ }
 }
 </script>
 
@@ -72,7 +96,6 @@ export default{
     font-family: 'IBM Plex Sans';
     font-size: 18px;
     background-color: #fff;
-    /* margin: 0 0 30px 0; */
 }
 
 .comments__info{
@@ -87,7 +110,6 @@ export default{
     color: #9181FF;
 }
 .comments__info span{
-    /* font: 500 16px/21px 'IBM Plex Sans'; */
     color: #909090;
 }
 </style>

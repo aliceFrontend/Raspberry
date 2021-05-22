@@ -2,7 +2,7 @@ import commentApi from '@/api/comment'
 
 const state = {
   isSubmitting: false,
-  error: null
+  validationErrors: null
 }
 
 export const mutationTypes = {
@@ -24,16 +24,16 @@ const mutations = {
   },
   [mutationTypes.createCommentFailure](state, payload) {
     state.isSubmitting = false
-    state.error = payload
+    state.validationErrors = payload
   }
 }
 
 const actions = {
-  [actionTypes.createComment](context, {apiUrl}) {
+  [actionTypes.createComment](context, {commentInput}) {
     return new Promise(resolve => {
       context.commit(mutationTypes.createCommentStart)
       commentApi
-        .createComment(apiUrl)
+        .createComment(commentInput)
         .then(comment => {
           context.commit(mutationTypes.createCommentSuccess, comment)
           resolve(comment)
