@@ -29,11 +29,11 @@ const mutations = {
 }
 
 const actions = {
-  [actionTypes.createComment](context, {commentInput}) {
+  [actionTypes.createComment](context, {slug, commentInput}) {
     return new Promise(resolve => {
       context.commit(mutationTypes.createCommentStart)
       commentApi
-        .createComment(commentInput)
+        .createComment(slug, commentInput)
         .then(comment => {
           context.commit(mutationTypes.createCommentSuccess, comment)
           resolve(comment)

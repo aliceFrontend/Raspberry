@@ -4,7 +4,7 @@ const getComment = apiUrl => {
   return axios.get(apiUrl)
 }
 
-const createComment = (commentInput, slug) => {
+const createComment = (slug, commentInput) => {
   return axios
     .post(`articles/${slug}/comments`, {comment: commentInput})
     .then(response => response.data.comment)

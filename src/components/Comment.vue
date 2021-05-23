@@ -71,8 +71,12 @@ export default{
  },
  methods:{
      onSubmit(commentInput){
-         this.$store.dispatch(actionTypesCreateComment.createComment, {commentInput}).then()
-     }
+         const slug = this.$route.params.slug
+         this.$store.dispatch(actionTypesCreateComment.createComment, {commentInput, slug}).then(
+         this.$router.push({name: 'home'}),
+        //  this.$router.push({name: 'article', params: {slug: slug}})
+         )
+     },
  }
 }
 </script>
