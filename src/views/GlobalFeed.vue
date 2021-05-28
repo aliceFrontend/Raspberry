@@ -19,10 +19,12 @@ export default({
         AppFeed, 
         AppPopularTags,
     },
-    data(){
-        return{
-             apiUrl: '/articles'
-        }
+    computed: {
+      apiUrl() {
+        const tags = this.$route.path.split('/tags/');
+        const suffix = tags.length == 2 ? `?tag=${tags.pop()}` : '';
+        return '/articles' + suffix;
+      }
     }
 })
 </script>

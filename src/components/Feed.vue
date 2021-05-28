@@ -9,7 +9,8 @@
                 <div class="post__wrap">
                     <div class="item-post__image">
                     <!-- <img :src="require(`./../assets/images/${post.post_image}.jpg`)" alt=""> -->
-                        <img src="./../assets/images/thumb_article1.jpg" alt="">
+                        <!-- <img src="./../assets/images/thumb_article1.jpg" alt=""> -->
+                        <img :src="article.image" alt=""/>
 
                         <!-- <div class="item-home__isFavorite">
                             <img src="./../assets/images/like.svg" alt="">
@@ -75,6 +76,12 @@ export default {
   },
   watch: {
     currentPage() {
+      this.fetchFeed()
+    },
+    baseUrl() {
+      this.fetchFeed()
+    },
+    apiUrl() {
       this.fetchFeed()
     }
   },
