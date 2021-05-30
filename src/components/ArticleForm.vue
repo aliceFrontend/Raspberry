@@ -24,7 +24,7 @@
                     <input type="text" placeholder="Enter tags" v-model="tagList">
                 </div>
                 <div class="form__image">
-                        <input type="file" name="file" id="input__file" ref="file">
+                        <input type="file" name="file" id="input__file" @change="image = $event.target.files[0]" ref="file">
                         <label for="input__file">
                             <span class="input__file-button">
                                 <img src="./../assets/images/Group.svg" alt="">
@@ -64,19 +64,30 @@ export default{
             description: this.initialValues.description,
             body: this.initialValues.body,
             tagList: this.initialValues.tagList.join(' '),
-            // image: ''
+            image: ''
         }
     },
     methods:{
         onSubmit(){
+            const reader = new FileReader();
             const form = {
                 title: this.title,
                 description: this.description,
                 body: this.body,
-                tagList: this.tagList.split(' ')
-                // image: this.image
+                tagList: this.tagList.split(' '),
+                image: '',
             }
-            this.$emit('articleSubmit', form)
+
+            reader.onload = (e) => {
+                form.image = e.target.result;
+                this.$emit('articleSubmit', form);
+            };
+            
+            reader.onerror = () => {
+                this.$emit('articleSubmit', form);
+            };
+
+            reader.readAsDataURL(this.image);
         }
     }
 }

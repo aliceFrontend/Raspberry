@@ -24,6 +24,7 @@
                     <button class="postDetails__delete" type="submit" @click="deleteArticle">Delete</button>
                 </div>
             </div>
+            <img :src="article.image" alt=""/>
             <div class="postDetails__body">
                 <AppLoading v-if="isLoading"/>
                 <AppErrorMessage v-if="error" :message="error"/>
