@@ -109,26 +109,27 @@ export default {
   padding: 30px 20px 40px 0px;
 }
 .item-post__image {
-  position: relative;
-  padding: 61% 0 0 0;
   /* position: relative;
+  padding: 61% 0 0 0; */
+  position: relative;
   overflow: hidden;
   width: 340px;
-  height: 215px; */
+  height: 215px;
 }
 .item-post__image img {
-  position: absolute;
+  /* position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  border-radius: 8px;
-  /* position: absolute;
+  border-radius: 8px; */
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   width: 340px;
   height: 215px;
-  object-fit: cover; */
+  object-fit: cover;
+  border-radius: 8px;
 }
 .item-post__data {
   font: normal 14px/14px 'Poppins', sans-serif;

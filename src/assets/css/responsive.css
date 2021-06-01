@@ -1,0 +1,100 @@
+@media(max-width: 1440px){
+    .noteFound__image img {
+      width: 95%;
+  }
+  }
+  @media(max-width: 1150px){
+    .noteFound{
+      flex-direction: column-reverse;
+    }
+    .home__title{
+        padding: 88px 100px 88px 100px;
+        text-align: center;
+        font: 600 120px/130px 'Poppins', sans-serif;
+    }
+    .home__body{
+        display: grid;
+        padding: 0 20px 0 20px;
+    }
+    .home__tags{
+        grid-row-start: 1;
+        grid-column-start: 1;
+        grid-row-end: 2;
+        grid-column-end: 2;
+        margin: 0 auto 50px auto;
+        width: initial;
+    }
+    /* .postDetails__image{
+        max-width: 600px;
+    } */
+    .postDetails__image img{
+        width: 100%;
+    }
+    .postDetails__title{
+        max-width: 800px;
+        font: 600 80px/90px 'Poppins', sans-serif;
+    }
+  }
+  @media(max-width: 1000px){
+    .noteFound{
+      padding: 100px 150px 30px 150px;
+    }
+    .home__title {
+        padding: 88px 50px 88px 50px;
+        font: 600 100px/110px 'Poppins', sans-serif;
+    }
+  }
+  @media(max-width: 768px){
+  .noteFound {
+      padding: 100px 50px 30px 50px;
+  }
+  .header__navs{
+      display: none;
+   }
+   .home__title{
+    padding: 60px 20px 60px 20px;
+    font: 600 70px/60px 'Poppins', sans-serif;
+   }
+   .postDetails__title{
+    font: 600 50px/60px 'Poppins', sans-serif;
+   }
+  }
+  @media(max-width: 660px){
+    .userProfile__edit{
+        width: 80%;
+    }
+  }
+  @media(max-width: 425px){
+      .home__title{
+        padding: 60px 15px 60px 15px;
+        font: 600 50px/60px 'Poppins', sans-serif;
+      }
+      .home__tags{
+          width: 80%;
+      }
+      .postDetails__title{
+        font: 600 30px/40px 'Poppins', sans-serif;
+      }
+      .postDetails{
+          padding: 10px;
+      }
+  }
+  @media(max-width: 375px){
+      .post{
+          flex: initial;
+          margin: 0;
+          padding: 0 20px 0 20px;
+          min-width: 150px;
+      }
+      .item-post__image img{
+        width: 270px;
+        height: 145px;
+    }
+    .postDetails__info{
+        display: none;
+    }
+    .postDetails__profile{
+        display: none;
+    }
+  }
+  @media(max-width: 300px){}

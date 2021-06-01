@@ -50,7 +50,7 @@
 .noteFound__mobile{
   display: none;
 }
-@media(max-width: 1440px){
+/* @media(max-width: 1440px){
   .noteFound__image img {
     width: 95%;
 }
@@ -73,5 +73,5 @@
 @media(max-width: 660px){}
 @media(max-width: 425px){}
 @media(max-width: 375px){}
-@media(max-width: 300px){}
+@media(max-width: 300px){} */
 </style>

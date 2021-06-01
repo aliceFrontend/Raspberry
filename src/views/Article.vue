@@ -22,7 +22,9 @@
                     <button class="postDetails__delete" type="submit" @click="deleteArticle">Delete</button>
                 </div>
             </div>
-            <img :src="article.image" alt=""/>
+            <div class="postDetails__image">
+                <img :src="article.image" alt=""/>
+            </div>
             <div class="postDetails__body">
                 <AppLoading v-if="isLoading"/>
                 <AppErrorMessage v-if="error" :message="error"/>
@@ -107,6 +109,7 @@ export default{
     width: 100%;
     margin: 0 auto;
     padding: 30px;
+    margin: 0 auto;
 }
 .postDetails__title{
     font: 600 100px/110px 'Poppins', sans-serif;
@@ -196,5 +199,18 @@ export default{
 }
 .postDetails__edit{
     margin: 0 20px 0 0;
+}
+.postDetails__image{
+    position: relative;
+    padding: 60% 0 0 0;
+    margin: 0 0 60px 0;
+}
+.postDetails__image img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* width: 100%; */
+    border-radius: 16px;
+    max-height: 600px;
 }
 </style>
