@@ -111,6 +111,10 @@ export default {
 .item-post__image {
   position: relative;
   padding: 61% 0 0 0;
+  /* position: relative;
+  overflow: hidden;
+  width: 340px;
+  height: 215px; */
 }
 .item-post__image img {
   position: absolute;
@@ -118,6 +122,13 @@ export default {
   left: 0;
   width: 100%;
   border-radius: 8px;
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 340px;
+  height: 215px;
+  object-fit: cover; */
 }
 .item-post__data {
   font: normal 14px/14px 'Poppins', sans-serif;

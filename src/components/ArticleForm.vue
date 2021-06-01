@@ -1,39 +1,30 @@
 <template>
     <div class="form__body">
-        <!-- <div class="form__errors"> -->
-            <!-- <p v-if="errors.length">
-                <b class="errors__title">Please correct the indicated errors:</b>
-                <ul class="errors__items">
-                    <li class="errors__item" v-for="error in errors" :key="error">{{ error }}</li>
-                </ul>
-            </p> -->
-            <!-- <AppValidationErrors v-if="error"/> -->
-        <!-- </div>    -->
-            <AppValidationErrors v-if="errors" :validation-errors="errors"/>
-            <form action="/" @submit.prevent="onSubmit" >
-                <div class="form__heading">
-                    <input type="text" placeholder="Title" v-model="title">
-                </div>
-                <div class="form__description">
-                    <input type="text" placeholder="Description" v-model="description">
-                </div>
-                <div class="form__body">
-                    <textarea name="" id="" cols="10" rows="13" placeholder="Content" v-model="body"></textarea>
-                </div>
-                <div class="form__tags">
-                    <input type="text" placeholder="Enter tags" v-model="tagList">
-                </div>
-                <div class="form__image">
-                        <input type="file" name="file" id="input__file" @change="image = $event.target.files[0]" ref="file">
-                        <label for="input__file">
-                            <span class="input__file-button">
-                                <img src="./../assets/images/Group.svg" alt="">
-                            </span>
-                            <span class="input__file-button-text">Add Image</span>
-                        </label>
-                </div>
-                <button class="form__btn" type="submit" :disable="isSubmitting">Publish Article</button>
-            </form>
+        <AppValidationErrors v-if="errors" :validation-errors="errors"/>
+        <form action="/" @submit.prevent="onSubmit" >
+            <div class="form__heading">
+                <input type="text" placeholder="Title" v-model="title">
+            </div>
+            <div class="form__description">
+                <input type="text" placeholder="Description" v-model="description">
+            </div>
+            <div class="form__body">
+                <textarea name="" id="" cols="10" rows="13" placeholder="Content" v-model="body"></textarea>
+            </div>
+            <div class="form__tags">
+                <input type="text" placeholder="Enter tags" v-model="tagList">
+            </div>
+            <div class="form__image">
+                    <input type="file" name="file" id="input__file" @change="image = $event.target.files[0]" ref="file">
+                    <label for="input__file">
+                        <span class="input__file-button">
+                            <img src="./../assets/images/Group.svg" alt="">
+                        </span>
+                        <span class="input__file-button-text">Add Image</span>
+                    </label>
+            </div>
+            <button class="form__btn" type="submit" :disable="isSubmitting">Publish Article</button>
+        </form>
     </div>
 </template>
 
@@ -161,11 +152,4 @@ export default{
 .form__errors{
     margin: 0 0 10px 0;
 }
-/* .errors__title{
-    font: 500 18px/23px 'IBM Plex Sans';
-}
-.errors__item{
-    font: 500 16px/21px 'IBM Plex Sans';
-    color: #FF0033;
-} */
 </style>

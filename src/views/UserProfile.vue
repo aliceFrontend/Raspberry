@@ -23,7 +23,7 @@
           </li>
       </ul>
     </div>
-    <mcv-feed-toggler></mcv-feed-toggler>
+    <!-- <mcv-feed-toggler></mcv-feed-toggler> -->
     <mcv-feed :api-url="apiUrl"></mcv-feed>
   </div>
 </template>
@@ -33,13 +33,13 @@ import {mapState, mapGetters} from 'vuex'
 import {actionTypes as userProfileActionTypes} from '@/store/modules/userProfile'
 import {getterTypes as authGetterTypes} from '@/store/modules/auth'
 import McvFeed from '@/components/Feed'
-import McvFeedToggler from '@/components/FeedToggler'
+// import McvFeedToggler from '@/components/FeedToggler'
 
 export default {
   name: 'McvUserProfile',
   components: {
     McvFeed,
-    McvFeedToggler
+    // McvFeedToggler
   },
   computed: {
     ...mapState({

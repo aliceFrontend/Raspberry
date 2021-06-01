@@ -7,7 +7,6 @@
             <div class="postDetails__author">
                 <div class="postDetails__profile">
                     <router-link :to="{name: 'userProfile', params: {slug: article.author.username}}" class="postDetails__image">
-                        <!-- <img :src="article.author.image" alt=""> -->
                     </router-link>
                 </div>
                 <div class="postDetails__info">
@@ -15,7 +14,6 @@
                         {{article.author.username}}
                     </router-link>
                     <div class="postDetails__data">
-                        <!-- Maret 16, 2021 -->
                         {{article.createdAt}}
                     </div>
                 </div>
@@ -32,27 +30,6 @@
                     {{article.body}}
                     
                 </p>
-                <!-- УДАЛИТЬ -->
-                <!-- <p>
-                ПРИМЕР ПОСТА
-                Sudah beberapa hari ini saya membuat design class. Konsep nya adalah mengerjakan task harian, review dan ngobrol
-                Suatu hari ada peserta yang bertanya "Mas saya dulu bikin design dashboard kayak gini, kira2 gimana ya?" sambil menunjukkan design dashboard yang pernah dibuat.
-                Setelah melihat design dashboard nya, rasanya saya mau bilang "Ini salah, harusnya seperti ini..."
-                Tapi saya langsung berpikir... design ini kan bukan ilmu pasti, siapa yang berhak menentukan apakah design seperti ini salah atau benar?
-                </p> -->
-                <!-- <div class="postDetails__separation">• • •</div>   
-                <p>Setelah berpikir beberapa saat, akhir nya saya menjawab pertanyaan itu dengan memberikan pandangan lain.
-                Sebelum menjawab pertanyaan nya, saya menduplikasi dulu design nya, lalu saya ubah beberapa bagian nya.
-                "Kalau untuk dashboard seperti ini, saya akan membuat design nya seperti ini" (sambil menunjukkan beberapa perubahan design)
-                "Alasan saya membuat design seperti ini karena... bla bla bla..." (menjelaskan alasan dibalik pembuatan design)
-                "Design yang kamu bikin enggak salah, user tetep bisa memakai nya. Jika menggunakan design mu, maka cara user memakai nya bakal seperti ini..., Jika menggunakan design saya, maka cara user memakai nya seperti itu..." (menjelaskan bagaimana nanti nya user memakai design yang dia buat dan yang saya buat)
-                </p>
-                <div class="postDetails__separation">• • •</div>
-                <p>Mungkin kalau saya menjawab "Salah" , dia tidak akan menggunakan design itu lagi, padahal bisa jadi design itu akan cocok jika kondisi nya berbeda.
-                </p>
-                <div class="postDetails__separation">• • •</div>
-                <p>Menurut saya design bukan tentang benar atau salah, tapi menyesuaikan dengan konteks dan kebutuhan.</p> -->
-                <!-- УДАЛИТЬ -->
             </div>
             <AppTagList :tags="article.tagList"/>
             <AppAddToFavorites :is-favorited="article.favorited" :article-slug="article.slug" :favorites-count="article.favoritesCount"/>
@@ -147,7 +124,6 @@ export default{
 .postDetails__profile{
     width: 60px;
     height: 60px;
-    /* border: 2px solid red; */
     background: -webkit-linear-gradient(left top, rgb(216,15,233) 0%, rgb( 242 ,36 ,23) 100%);
     transition: all 0.4s ease-in-out;
     border-radius: 50%;

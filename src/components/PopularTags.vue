@@ -46,7 +46,6 @@ export default({
 <style>
 .popularTags{
     min-height: 1px;
-    /* position: fixed; */
 }
 .popularTags__wrap{
     padding: 5px 10px 10px 10px;

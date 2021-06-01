@@ -26,7 +26,6 @@
 }
 .noteFound__title {
   font: 800 12vw/12vw  'Libre Franklin';
-  /* color: white; */
   color: #E3E6EC;
   text-shadow: -3px -3px 0 #171717, 3px -3px 0 #171717, -3px 3px 0 #171717, 3px 3px 0 #171717;
   width: 100%;

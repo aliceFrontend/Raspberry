@@ -8,7 +8,7 @@
         </div>
         
         <div class="signIn__errors">
-            <ValidationErrors v-if="validationErrors" :validation-errors = "validationErrors"/>
+            <McvValidationErrors v-if="validationErrors" :validation-errors = "validationErrors"/>
         </div>  
         <form @submit.prevent="onSubmit" >
             <div class="signIn__email">
@@ -21,43 +21,6 @@
         </form> 
     </div>
 </template>
-
-<script>
-// import {actionTypes} from '@/store/modules/auth'
-// import ValidationErrors from '@/components/ValidationErrors'
-// import {mapState} from 'vuex'
-
-// export default{
-//     name: 'AppLogin',
-//     data(){
-//         return {
-//             email: '',
-//             password: '', 
-//         }
-//     },
-//     components: {ValidationErrors},
-//     computed:{
-//         ...mapState({
-//             isSubmitting: state => state.auth.isSubmitting,
-//             validationErrors: state => state.auth.validationErrors
-//         })
-//     },
-//     methods: {
-//     onSubmit() {
-//       this.$store
-//         .dispatch(actionTypes.login, {
-//           email: this.email,
-//           password: this.password
-//         })
-//         .then(() => {
-//           this.$router.push({name: 'home'})
-//         })
-//     },
-//   }
-// }
- </script>
-
-
  
 <script>
 import {mapState} from 'vuex'

@@ -7,7 +7,7 @@
             <router-link :to="{name: 'login'}">Need an account?</router-link>
         </div>
         <div class="auth__errors">
-           <ValidationErrors v-if="validationErrors" :validation-errors = "validationErrors"/>
+           <McvValidationErrors v-if="validationErrors" :validation-errors = "validationErrors"/>
         </div>  
         <form @submit.prevent="onSubmit" >
             <div class="auth__name">
@@ -23,50 +23,6 @@
         </form> 
     </div>
 </template>
-
-<script>
-// import {actionTypes} from '@/store/modules/auth'
-// import ValidationErrors from '@/components/ValidationErrors'
-// import {mapState} from 'vuex'
-// export default{
-//     name: 'AppRegister',
-//     data(){
-//         return {
-//             email: '',
-//             username: '',
-//             password: '', 
-//         }
-//     },
-//     computed:{
-//          ...mapState({
-//             isSubmitting: state => state.auth.isSubmitting,
-//             validationErrors: state => state.auth.validationErrors
-//         })
-    // isSubmitting() {
-    //   return this.$store.state.auth.isSubmitting
-    //  },
-    //  validationErrors(){
-    //      return this.$store.state.auth.validationErrors
-    //  }
-//     },
-//     methods: {
-//     onSubmit() {
-//       this.$store
-//         .dispatch(actionTypes.register, {
-//           email: this.email,
-//           username: this.username,
-//           password: this.password
-//         })
-//         .then(() => {
-//           this.$router.push({name: 'home'})
-//         })
-//     },
-//   },
-//   components: {ValidationErrors}
-// }
-</script>
-
-
 
 <script>
 import {mapState} from 'vuex'

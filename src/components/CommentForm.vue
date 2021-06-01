@@ -1,6 +1,5 @@
 <template>
     <div class="comments">
-        <!-- ValidationErrors -->
         <form class="comments__item" @submit.prevent="onSubmit">
             <textarea name="" id="" cols="10" rows="7" placeholder="Write a comment..." v-model="body"></textarea>
             <div class="comments__footer">

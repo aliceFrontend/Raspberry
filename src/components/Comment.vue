@@ -74,8 +74,6 @@ export default{
          const slug = this.$route.params.slug
          this.$store.dispatch(actionTypesCreateComment.createComment, {commentInput, slug}).then(
          this.$router.go(0)
-         //this.$router.push({name: 'home'}),
-        //  this.$router.push({name: 'article', params: {slug: slug}})
          )
      },
  }
