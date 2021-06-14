@@ -6,19 +6,19 @@
       <div class="userProfile__about">{{ userProfile.bio }}</div>
       <!-- FOLLOW USER BUTTON -->
       <router-link v-if="isCurrentUserProfile" class="userProfile__edit" :to="{name: 'settings'}">
-        Edit Profile Settings
+        Изменить настройки пользователя
       </router-link>
     </div>
     <div class="userProfile__switch">
       <ul class="userProfile__list">
         <li class="userProfile__list-item">
           <router-link :to="{ name: 'userProfile', params: {slug: userProfile.username}}" :class="{active: routeName === 'userProfile'}">
-            My Posts
+            Мои посты
           </router-link>
         </li>
         <li class="userProfile__list-item">
           <router-link :to="{ name: 'userProfileFavorites', params: {slug: userProfile.username} }" :class="{active: routeName === 'userProfileFavorites'}">
-            Favorites Posts
+            Избранные посты
           </router-link>
           </li>
       </ul>

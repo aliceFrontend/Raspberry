@@ -1,6 +1,6 @@
 <template>
   <div class="like">
-    <div class="like__title">Did you like the article?</div>
+    <div class="like__title">Вам понравился пост?</div>
     <div class="like__info">
       <button class="like__btn"  @click="handleLike" :class="{ btn: true, 'btn-sm': true, 'btn-primary': isFavoritedOptimistic, 'btn-outline-primary': !isFavoritedOptimistic }">
         <div class="like__count">{{ favoritesCountOptimistic }}</div>

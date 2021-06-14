@@ -2,7 +2,7 @@
     <div>
         <AppLoading v-if="isLoading"/>
         <div class="form__inner" v-if="initialValues">
-            <div class="form__title">Edit Post</div>
+            <div class="form__title">Редактирование поста</div>
             <AppArticleForm 
             :initialValues="initialValues"
             :errors="validationErrors"

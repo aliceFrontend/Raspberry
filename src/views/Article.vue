@@ -18,13 +18,13 @@
                     </div>
                 </div>
                 <div class="postDetails__btn" v-if="isAuthor">
-                    <router-link :to="{name: 'editArticle', params:{ slug: article.slug }}" class="postDetails__edit" type="submit">Edit</router-link>
-                    <button class="postDetails__delete" type="submit" @click="deleteArticle">Delete</button>
+                    <router-link :to="{name: 'editArticle', params:{ slug: article.slug }}" class="postDetails__edit" type="submit">Изменить</router-link>
+                    <button class="postDetails__delete" type="submit" @click="deleteArticle">Удалить</button>
                 </div>
             </div>
-            <div class="postDetails__image">
+            <!-- <div class="postDetails__image">
                 <img :src="article.image" alt=""/>
-            </div>
+            </div> -->
             <div class="postDetails__body">
                 <AppLoading v-if="isLoading"/>
                 <AppErrorMessage v-if="error" :message="error"/>
@@ -200,7 +200,7 @@ export default{
 .postDetails__edit{
     margin: 0 20px 0 0;
 }
-.postDetails__image{
+/* .postDetails__image{
     position: relative;
     padding: 60% 0 0 0;
     margin: 0 0 60px 0;
@@ -209,8 +209,7 @@ export default{
     position: absolute;
     top: 0;
     left: 0;
-    /* width: 100%; */
     border-radius: 16px;
     max-height: 600px;
-}
+} */
 </style>

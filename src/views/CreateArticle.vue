@@ -1,6 +1,6 @@
 <template>
     <div class="form__inner">
-         <div class="form__title">Create new Post</div>
+         <div class="form__title">Добавить новый пост</div>
         <AppArticleForm 
         :initialValues="initialValues"
         :errors="validationErrors"

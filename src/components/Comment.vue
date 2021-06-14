@@ -10,8 +10,8 @@
                     <div class="comments__text">{{comment.body}}</div>
                 </div>
                 <div class="comments__info">
-                        <p><span>author:</span>  {{comment.author.username}}</p>
-                        <p><span>data:</span>  {{comment.createdAt}}</p>
+                        <p><span>автор:</span>  {{comment.author.username}}</p>
+                        <p><span>дата:</span>  {{comment.createdAt}}</p>
                 </div>
 
             </div>
@@ -93,12 +93,13 @@ export default{
 
 .comments__body{
     width: 100%;
-    padding: 30px 0px 30px 15px;
+    padding: 30px 15px 30px 15px;
     border: none;
     border-radius: 5px;
     font-family: 'IBM Plex Sans';
     font-size: 18px;
     background-color: #fff;
+    line-height: 23px;
 }
 
 .comments__info{

@@ -5,12 +5,12 @@
         </router-link>
         <div class="header__navs" role="navigation">
 
-            <router-link :to="{name: 'home'}" class="header__nav-item" active-class="active">Home</router-link>
+            <router-link :to="{name: 'home'}" class="header__nav-item" active-class="active">Главная</router-link>
 
             <template v-if="isLoggedIn">
 
-                 <router-link :to="{name: 'createArticle'}" class="header__nav-item" active-class="active">New Article</router-link>
-                 <router-link :to="{name: 'settings'}" class="header__nav-item" active-class="active">Settings</router-link> 
+                 <router-link :to="{name: 'createArticle'}" class="header__nav-item" active-class="active">Новый пост</router-link>
+                 <router-link :to="{name: 'settings'}" class="header__nav-item" active-class="active">Настройки</router-link> 
                  <router-link :to="{name: 'userProfile', params: {slug: currentUser.username}}" class="header__nav-item" active-class="active">
                 <img :src="currentUser.image" alt=""> 
                 &nbsp;
@@ -23,8 +23,8 @@
             
             <template v-if="isAnonymous">
 
-                <router-link :to="{name: 'login'}" class="header__nav-item" active-class="active">Log in</router-link>
-                <router-link :to="{name: 'register'}" class="header__nav-item" active-class="active">Sign up</router-link>
+                <router-link :to="{name: 'login'}" class="header__nav-item" active-class="active">Войти</router-link>
+                <router-link :to="{name: 'register'}" class="header__nav-item" active-class="active">Регистрация</router-link>
 
             </template>
 

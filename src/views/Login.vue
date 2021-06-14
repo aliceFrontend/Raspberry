@@ -1,10 +1,10 @@
 <template>
      <div class="signIn"> 
         <div class="signIn__title">
-           Sign in
+           Авторизация
         </div>
         <div class="signIn__link">
-            <router-link :to="{name: 'register'}">Have an account?</router-link>
+            <router-link :to="{name: 'register'}">Еще нет аккаунта?</router-link>
         </div>
         
         <div class="signIn__errors">
@@ -12,12 +12,12 @@
         </div>  
         <form @submit.prevent="onSubmit" >
             <div class="signIn__email">
-                <input type="text" placeholder="Email" v-model="email">
+                <input type="text" placeholder="Электронная почта" v-model="email">
             </div>
             <div class="signIn__password">
-                <input type="password" placeholder="Password" v-model="password">
+                <input type="password" placeholder="Пароль" v-model="password">
             </div>
-            <button class="signIn__btn" type="submit" :disabled="isSubmitting">Sign In</button>
+            <button class="signIn__btn" type="submit" :disabled="isSubmitting">Подтвердить</button>
         </form> 
     </div>
 </template>

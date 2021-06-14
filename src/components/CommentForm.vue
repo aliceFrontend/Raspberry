@@ -1,10 +1,10 @@
 <template>
     <div class="comments">
         <form class="comments__item" @submit.prevent="onSubmit">
-            <textarea name="" id="" cols="10" rows="7" placeholder="Write a comment..." v-model="body"></textarea>
+            <textarea name="" id="" cols="10" rows="7" placeholder="Напишите свой комментарий.." v-model="body"></textarea>
             <div class="comments__footer">
                 <button class="comments__btn" type="submit" :disable="isSubmitting">
-                    Post Comment
+                   Добавить
                 </button>
             </div>   
         </form>

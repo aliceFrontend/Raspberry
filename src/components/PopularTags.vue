@@ -5,7 +5,7 @@
 
         <div class="popularTags" v-if="popularTags">
             <div class="popularTags__wrap">
-                <div class="popularTags__title"> Popular Tags</div>
+                <div class="popularTags__title">Популярные теги</div>
                 <div class="popularTags__list">
                     <router-link v-for="popularTag in popularTags" 
                         :key="popularTag" 

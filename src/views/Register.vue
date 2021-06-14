@@ -1,25 +1,25 @@
 <template>
     <div class="auth"> 
         <div class="auth__title">
-           Sign up
+           Зарегистрироваться
         </div>
         <div class="auth__link">
-            <router-link :to="{name: 'login'}">Need an account?</router-link>
+            <router-link :to="{name: 'login'}">Уже есть аккаунт?</router-link>
         </div>
         <div class="auth__errors">
            <McvValidationErrors v-if="validationErrors" :validation-errors = "validationErrors"/>
         </div>  
         <form @submit.prevent="onSubmit" >
             <div class="auth__name">
-                <input type="text" placeholder="Name" v-model="username">
+                <input type="text" placeholder="Имя пользователя" v-model="username">
             </div>
             <div class="auth__email">
-                <input type="email" placeholder="Email" v-model="email">
+                <input type="email" placeholder="Электронная почта" v-model="email">
             </div>
             <div class="auth__password">
-                <input type="password" placeholder="Password" v-model="password">
+                <input type="password" placeholder="Пароль" v-model="password">
             </div>
-            <button class="auth__btn" type="submit" :disabled="isSubmitting">Sign Up</button>
+            <button class="auth__btn" type="submit" :disabled="isSubmitting">Подтвердить</button>
         </form> 
     </div>
 </template>

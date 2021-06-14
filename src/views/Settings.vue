@@ -1,28 +1,28 @@
 <template>
     <div class="settings" v-if="currentUser">
         <div class="settings__title">
-            Your Settings
+            Ваши настройки 
         </div>
         <div class="settings__errors">
             <AppValidationErrors v-if="validationErrors" :validation-errors = "validationErrors"/>
         </div>
         <form @submit.prevent="onSubmit">
             <div class="settings__username">
-                <input type="text" placeholder="Username" v-model="form.username">
+                <input type="text" placeholder="Имя пользователя" v-model="form.username">
             </div>
              <div class="settings__about">
-                <textarea name="" id="" cols="10" rows="13" placeholder="Short bio about you" v-model="form.bio"></textarea>
+                <textarea name="" id="" cols="10" rows="13" placeholder="Короткое описание о вас" v-model="form.bio"></textarea>
             </div>
             <div class="settings__email">
-                <input type="text" placeholder="Email" v-model="form.email">
+                <input type="text" placeholder="Электронная почта" v-model="form.email">
             </div>
              <div class="settings__newpassword">
-                <input type="password" placeholder="Password" v-model="form.password">
+                <input type="password" placeholder="Подтвердите пароль" v-model="form.password">
             </div>
-            <button class="settings__btn" type="submit" :disabled="isSubmitting">Update Settings</button>
+            <button class="settings__btn" type="submit" :disabled="isSubmitting">Обновить настройки</button>
         </form>
         <hr>
-        <button class="settings__logout" type="submit" @click="logout">Or click here to logout.</button>
+        <button class="settings__logout" type="submit" @click="logout">Или кликните для выхода</button>
     </div>
 </template>
 

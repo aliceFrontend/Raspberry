@@ -3,16 +3,16 @@
         <AppValidationErrors v-if="errors" :validation-errors="errors"/>
         <form action="/" @submit.prevent="onSubmit" >
             <div class="form__heading">
-                <input type="text" placeholder="Title" v-model="title">
+                <input type="text" placeholder="Заголовок" v-model="title">
             </div>
             <div class="form__description">
-                <input type="text" placeholder="Description" v-model="description">
+                <input type="text" placeholder="Описание" v-model="description">
             </div>
             <div class="form__body">
-                <textarea name="" id="" cols="10" rows="13" placeholder="Content" v-model="body"></textarea>
+                <textarea name="" id="" cols="10" rows="13" placeholder="Содержимое" v-model="body"></textarea>
             </div>
             <div class="form__tags">
-                <input type="text" placeholder="Enter tags" v-model="tagList">
+                <input type="text" placeholder="Теги" v-model="tagList">
             </div>
             <div class="form__image">
                     <input type="file" name="file" id="input__file" @change="image = $event.target.files[0]" ref="file">
@@ -20,10 +20,10 @@
                         <span class="input__file-button">
                             <img src="./../assets/images/Group.svg" alt="">
                         </span>
-                        <span class="input__file-button-text">Add Image</span>
+                        <span class="input__file-button-text">Добавить картинку</span>
                     </label>
             </div>
-            <button class="form__btn" type="submit" :disable="isSubmitting">Publish Article</button>
+            <button class="form__btn" type="submit" :disable="isSubmitting">Опубликовать пост</button>
         </form>
     </div>
 </template>
